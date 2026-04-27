@@ -6,7 +6,7 @@ BajaClaw 是为 BajaSeek 场景定制的 OpenClaw 桌面端应用。用户下载
 
 请到 GitHub Releases 下载最新版 Windows 安装包：
 
-- 安装包：`baja-claw-1.0.2-win-x64.exe`
+- 安装包：`baja-claw-1.0.3-win-x64.exe`
 - 系统：Windows 10 / Windows 11，64 位
 - 推荐安装方式：双击安装包，按提示完成安装
 
@@ -27,7 +27,7 @@ https://github.com/cyf1124906008-ai/baja-claw/releases
 
 ## 快速开始
 
-1. 下载并安装 `baja-claw-1.0.2-win-x64.exe`。
+1. 下载并安装 `baja-claw-1.0.3-win-x64.exe`。
 2. 打开 BajaClaw。
 3. 进入「模型」页面，点击「添加提供商」。
 4. 填写模型信息：
