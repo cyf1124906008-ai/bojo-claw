@@ -60,7 +60,7 @@
   "source": {
     "badge": {
       "bundled": "В комплекте",
-      "bojoLocal": "Встроено Bojo",
+      "bajoLocal": "Встроено Bajo",
       "managed": "Управляемый",
       "workspace": "Рабочая область",
       "extra": "Дополнительные директории",

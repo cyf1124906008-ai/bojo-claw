@@ -8,7 +8,7 @@ import type {
 export const PROVIDER_DEFINITIONS: ProviderDefinition[] = [
   {
     id: 'shuyan',
-    name: 'BojoSeek',
+    name: 'BajoSeek',
     icon: 'B',
     placeholder: 'sk-...',
     model: 'bajoseek',
@@ -107,7 +107,7 @@ export const PROVIDER_DEFINITIONS: ProviderDefinition[] = [
       apiKeyEnv: 'OPENROUTER_API_KEY',
       headers: {
         'HTTP-Referer': 'https://claw-x.com',
-        'X-Title': 'BojoClaw',
+        'X-Title': 'BajoClaw',
       },
     },
   },

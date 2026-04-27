@@ -1,8 +1,8 @@
-appId: app.bojo-claw.desktop
-productName: BojoClaw
-copyright: Copyright 2026 BojoSeek
+appId: app.bajo-claw.desktop
+productName: BajoClaw
+copyright: Copyright 2026 BajoSeek
 compression: maximum
-artifactName: bojo-claw-${version}-${os}-${arch}.${ext}
+artifactName: bajo-claw-${version}-${os}-${arch}.${ext}
 
 directories:
   output: release
@@ -51,12 +51,12 @@ asarUnpack:
 npmRebuild: false
 
 # Auto-update configuration
-# BojoClaw must not use the upstream OSS feed. Keep updates tied to
-# the Bojo release repository so users never see unrelated versions or downgrades.
+# BajoClaw must not use the upstream OSS feed. Keep updates tied to
+# the Bajo release repository so users never see unrelated versions or downgrades.
 publish:
   - provider: github
     owner: cyf1124906008-ai
-    repo: bojo-claw
+    repo: bajo-claw
 
 # macOS Configuration
 mac:
@@ -83,8 +83,8 @@ mac:
   entitlementsInherit: entitlements.mac.plist
   notarize: true
   extendInfo:
-    NSMicrophoneUsageDescription: BojoClaw requires microphone access for voice features
-    NSCameraUsageDescription: BojoClaw requires camera access for video features
+    NSMicrophoneUsageDescription: BajoClaw requires microphone access for voice features
+    NSCameraUsageDescription: BajoClaw requires camera access for video features
 
 dmg:
   # Explicit volume size prevents dmg-builder@1.2.0 auto-calculation from
@@ -130,8 +130,8 @@ nsis:
   differentialPackage: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: BojoClaw
-  uninstallDisplayName: BojoClaw
+  shortcutName: BajoClaw
+  uninstallDisplayName: BajoClaw
   license: LICENSE
   include: scripts/installer.nsh
   installerIcon: resources/icons/icon.ico
@@ -158,17 +158,17 @@ linux:
       arch:
         - x64
   category: Utility
-  maintainer: BojoSeek
-  vendor: BojoSeek
+  maintainer: BajoSeek
+  vendor: BajoSeek
   synopsis: AI Assistant powered by OpenClaw
-  description: BojoClaw is a desktop AI assistant application that integrates with OpenClaw Gateway and BojoSeek.
+  description: BajoClaw is a desktop AI assistant application that integrates with OpenClaw Gateway and BajoSeek.
   desktop:
     entry:
-      Name: BojoClaw
+      Name: BajoClaw
       Comment: AI Assistant powered by OpenClaw
       Categories: Utility;Network;
       Keywords: ai;assistant;automation;chat;
-      StartupWMClass: bojo-claw
+      StartupWMClass: bajo-claw
 
 appImage:
   license: LICENSE

@@ -472,7 +472,7 @@ function listPkgs(nodeModulesDir) {
   return result;
 }
 
-function patchBojoSeekDefaultWsUrl(pluginDir, pluginId) {
+function patchBajoSeekDefaultWsUrl(pluginDir, pluginId) {
   if (pluginId !== 'bajoseek') return;
   const { readFileSync, writeFileSync } = require('fs');
   const targetFiles = [
@@ -487,7 +487,7 @@ function patchBojoSeekDefaultWsUrl(pluginDir, pluginId) {
     const patched = original.replaceAll('ws://14.103.246.65:19090', 'wss://ws.bajoseek.com');
     if (patched !== original) {
       writeFileSync(normWin(file), patched, 'utf8');
-      console.log(`[after-pack] 🩹 Patched BojoSeek default WebSocket URL in ${relative(pluginDir, file)}`);
+      console.log(`[after-pack] 🩹 Patched BajoSeek default WebSocket URL in ${relative(pluginDir, file)}`);
     }
   }
 }
@@ -644,7 +644,7 @@ exports.default = async function afterPack(context) {
       }
       // Fix hardcoded plugin ID mismatches in compiled JS
       patchPluginIds(pluginDestDir, pluginId);
-      patchBojoSeekDefaultWsUrl(pluginDestDir, pluginId);
+      patchBajoSeekDefaultWsUrl(pluginDestDir, pluginId);
     }
   }
 

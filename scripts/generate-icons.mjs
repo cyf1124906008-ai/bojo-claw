@@ -14,7 +14,7 @@ const SVG_SOURCE = path.join(ICONS_DIR, 'icon.svg');
 const PNG_SOURCE = path.join(ICONS_DIR, 'icon-source.png');
 const ICON_SOURCE = fs.existsSync(PNG_SOURCE) ? PNG_SOURCE : SVG_SOURCE;
 
-echo`🎨 Generating BojoSeek icons using Node.js...`;
+echo`🎨 Generating BajoSeek icons using Node.js...`;
 
 // Check if SVG source exists
 if (!fs.existsSync(ICON_SOURCE)) {

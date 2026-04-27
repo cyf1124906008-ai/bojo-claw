@@ -1,6 +1,6 @@
 /**
  * Skill Config Utilities
- * Direct read/write access to skill configuration in BojoClaw's isolated OpenClaw config
+ * Direct read/write access to skill configuration in BajoClaw's isolated OpenClaw config
  * This bypasses the Gateway RPC for faster and more reliable config updates.
  *
  * All file I/O uses async fs/promises to avoid blocking the main thread.
@@ -57,7 +57,7 @@ interface PreinstalledMarker {
 }
 
 interface LocalSkillMarker {
-    source: 'bojo-local';
+    source: 'bajo-local';
     slug: string;
     version: string;
     installedAt: string;
@@ -200,7 +200,7 @@ const LOCAL_SKILLS = [
     { slug: 'fund-etf-analysis', autoEnable: true, version: '2' },
 ] as const;
 
-const LOCAL_SKILL_MARKER_NAME = '.bojo-local-skill.json';
+const LOCAL_SKILL_MARKER_NAME = '.bajo-local-skill.json';
 
 function resolveLocalSkillSourceDir(slug: string): string | null {
     const candidates = [
@@ -213,7 +213,7 @@ function resolveLocalSkillSourceDir(slug: string): string | null {
 }
 
 /**
- * Ensure Bojo local skills are deployed to the isolated OpenClaw skills directory.
+ * Ensure Bajo local skills are deployed to the isolated OpenClaw skills directory.
  * These skills do not require per-skill API keys; they rely on the user's global model provider.
  * Runs at app startup; all errors are logged and swallowed so they never
  * block the normal startup flow.
@@ -232,7 +232,7 @@ export async function ensureBuiltinSkillsInstalled(): Promise<void> {
         let marker: LocalSkillMarker | null = null;
 
         if (!sourceDir) {
-            logger.warn(`Bojo local skill source not found, skipping: ${slug}`);
+            logger.warn(`Bajo local skill source not found, skipping: ${slug}`);
             continue;
         }
 
@@ -243,7 +243,7 @@ export async function ensureBuiltinSkillsInstalled(): Promise<void> {
                     try {
                         await rm(targetDir, { recursive: true, force: true });
                     } catch (error) {
-                        logger.warn(`Failed to remove old Bojo local skill ${slug}:`, error);
+                        logger.warn(`Failed to remove old Bajo local skill ${slug}:`, error);
                         continue;
                     }
                 } else {
@@ -262,7 +262,7 @@ export async function ensureBuiltinSkillsInstalled(): Promise<void> {
             await mkdir(targetDir, { recursive: true });
             await cpAsyncSafe(sourceDir, targetDir);
             const markerPayload: LocalSkillMarker = {
-                source: 'bojo-local',
+                source: 'bajo-local',
                 slug,
                 version: spec.version,
                 installedAt: new Date().toISOString(),
@@ -271,9 +271,9 @@ export async function ensureBuiltinSkillsInstalled(): Promise<void> {
             if (spec.autoEnable) {
                 toEnable.push(slug);
             }
-            logger.info(`Installed Bojo local skill: ${slug} -> ${targetDir}`);
+            logger.info(`Installed Bajo local skill: ${slug} -> ${targetDir}`);
         } catch (error) {
-            logger.warn(`Failed to install Bojo local skill ${slug}:`, error);
+            logger.warn(`Failed to install Bajo local skill ${slug}:`, error);
         }
     }
 
@@ -281,7 +281,7 @@ export async function ensureBuiltinSkillsInstalled(): Promise<void> {
         try {
             await setSkillsEnabled(Array.from(new Set(toEnable)), true);
         } catch (error) {
-            logger.warn('Failed to auto-enable Bojo local skills:', error);
+            logger.warn('Failed to auto-enable Bajo local skills:', error);
         }
     }
 }
@@ -290,7 +290,7 @@ async function tryReadLocalSkillMarker(markerPath: string): Promise<LocalSkillMa
     try {
         const raw = await readFile(markerPath, 'utf-8');
         const parsed = JSON.parse(raw) as LocalSkillMarker;
-        if (parsed?.source !== 'bojo-local' || !parsed?.slug || !parsed?.version) {
+        if (parsed?.source !== 'bajo-local' || !parsed?.slug || !parsed?.version) {
             return null;
         }
         return parsed;
@@ -378,7 +378,7 @@ async function tryReadMarker(markerPath: string): Promise<PreinstalledMarker | n
 
 /**
  * Ensure third-party preinstalled skills (bundled in app resources) are
- * deployed to BojoClaw's isolated OpenClaw skills directory as full directories.
+ * deployed to BajoClaw's isolated OpenClaw skills directory as full directories.
  *
  * Policy:
  * - If skill is missing locally, install it.

@@ -1,7 +1,7 @@
 {
   "steps": {
     "welcome": {
-      "title": "欢迎使用 BojoClaw",
+      "title": "欢迎使用 BajoClaw",
       "description": "您的 AI 助手已准备好进行配置"
     },
     "runtime": {
@@ -22,16 +22,16 @@
     },
     "complete": {
       "title": "准备就绪！",
-      "description": "BojoClaw 已准备好使用"
+      "description": "BajoClaw 已准备好使用"
     }
   },
   "welcome": {
-    "title": "欢迎使用 BojoClaw",
-    "description": "BojoClaw 内置 OpenClaw 与 BojoSeek 连接能力，安装后配置模型和 Bot 即可使用。",
+    "title": "欢迎使用 BajoClaw",
+    "description": "BajoClaw 内置 OpenClaw 与 BajoSeek 连接能力，安装后配置模型和 Bot 即可使用。",
     "features": {
       "noCommand": "无需命令行",
       "modernUI": "现代美观的界面",
-      "bundles": "内置 OpenClaw 与 BojoSeek 插件",
+      "bundles": "内置 OpenClaw 与 BajoSeek 插件",
       "crossPlatform": "跨平台支持"
     }
   },
@@ -113,10 +113,10 @@
   },
   "complete": {
     "title": "设置完成！",
-    "subtitle": "BojoClaw 已准备就绪。请在模型页面填写 API Key 和模型名称，然后在频道页面连接 BojoSeek Bot。",
+    "subtitle": "BajoClaw 已准备就绪。请在模型页面填写 API Key 和模型名称，然后在频道页面连接 BajoSeek Bot。",
     "provider": "AI 提供商",
     "components": "内置组件",
-    "componentsReady": "OpenClaw / BojoSeek 已内置",
+    "componentsReady": "OpenClaw / BajoSeek 已内置",
     "gateway": "网关",
     "running": "运行中",
     "footer": "普通用户无需安装 Python、OpenCode 或额外命令行环境。"
@@ -134,8 +134,8 @@
       "description": "随安装包内置的 OpenClaw 主程序"
     },
     "python-env": {
-      "name": "BojoSeek 插件",
-      "description": "随安装包内置的 BojoSeek 连接插件"
+      "name": "BajoSeek 插件",
+      "description": "随安装包内置的 BajoSeek 连接插件"
     },
     "code-assist": {
       "name": "模型配置",

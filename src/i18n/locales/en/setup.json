@@ -1,7 +1,7 @@
 {
   "steps": {
     "welcome": {
-      "title": "Welcome to BojoClaw",
+      "title": "Welcome to BajoClaw",
       "description": "Your AI assistant is ready to be configured"
     },
     "runtime": {
@@ -22,16 +22,16 @@
     },
     "complete": {
       "title": "All Set!",
-      "description": "BojoClaw is ready to use"
+      "description": "BajoClaw is ready to use"
     }
   },
   "welcome": {
-    "title": "Welcome to BojoClaw",
-    "description": "BojoClaw bundles OpenClaw and the BojoSeek connection so users can configure a model and Bot after installation.",
+    "title": "Welcome to BajoClaw",
+    "description": "BajoClaw bundles OpenClaw and the BajoSeek connection so users can configure a model and Bot after installation.",
     "features": {
       "noCommand": "Zero command-line required",
       "modernUI": "Modern, beautiful interface",
-      "bundles": "Bundled OpenClaw and BojoSeek plugin",
+      "bundles": "Bundled OpenClaw and BajoSeek plugin",
       "crossPlatform": "Cross-platform support"
     }
   },
@@ -113,10 +113,10 @@
   },
   "complete": {
     "title": "Setup Complete!",
-    "subtitle": "BojoClaw is ready. Configure the API key and model name on the Models page, then connect the BojoSeek Bot on the Channels page.",
+    "subtitle": "BajoClaw is ready. Configure the API key and model name on the Models page, then connect the BajoSeek Bot on the Channels page.",
     "provider": "AI Provider",
     "components": "Bundled Components",
-    "componentsReady": "OpenClaw / BojoSeek bundled",
+    "componentsReady": "OpenClaw / BajoSeek bundled",
     "gateway": "Gateway",
     "running": "Running",
     "footer": "End users do not need to install Python, OpenCode, or extra command-line tooling."
@@ -134,8 +134,8 @@
       "description": "OpenClaw runtime bundled with the installer"
     },
     "python-env": {
-      "name": "BojoSeek Plugin",
-      "description": "BojoSeek connection plugin bundled with the installer"
+      "name": "BajoSeek Plugin",
+      "description": "BajoSeek connection plugin bundled with the installer"
     },
     "code-assist": {
       "name": "Model Configuration",

@@ -242,10 +242,10 @@ export function ProvidersSettings() {
 
   return (
     <div data-testid="providers-settings" className="space-y-5">
-      <div className="bojo-page-header px-5 py-4">
+      <div className="bajo-page-header px-5 py-4">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <div className="bojo-page-kicker mb-1">MODEL GATEWAY</div>
+            <div className="bajo-page-kicker mb-1">MODEL GATEWAY</div>
             <h2 data-testid="providers-settings-title" className="text-2xl font-bold text-foreground tracking-tight">
               模型网关
             </h2>
@@ -253,7 +253,7 @@ export function ProvidersSettings() {
               默认使用数言接口，也可以手动填写兼容 OpenAI 的 Base URL、API Key 和模型名称。
             </p>
           </div>
-          <Button data-testid="providers-add-button" onClick={() => setShowAddDialog(true)} className="bojo-button-gradient rounded-md px-5 h-9 shadow-none font-semibold text-[13px]">
+          <Button data-testid="providers-add-button" onClick={() => setShowAddDialog(true)} className="bajo-button-gradient rounded-md px-5 h-9 shadow-none font-semibold text-[13px]">
           <Plus className="h-4 w-4 mr-2" />
           {t('aiProviders.add')}
           </Button>
@@ -261,17 +261,17 @@ export function ProvidersSettings() {
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-12 text-muted-foreground bojo-panel border-dashed">
+        <div className="flex items-center justify-center py-12 text-muted-foreground bajo-panel border-dashed">
           <Loader2 className="h-6 w-6 animate-spin" />
         </div>
       ) : displayProviders.length === 0 ? (
-        <div data-testid="providers-empty-state" className="flex flex-col items-center justify-center py-20 text-muted-foreground bojo-panel border-dashed">
+        <div data-testid="providers-empty-state" className="flex flex-col items-center justify-center py-20 text-muted-foreground bajo-panel border-dashed">
           <Key className="h-12 w-12 mb-4 opacity-50" />
           <h3 className="text-[15px] font-medium mb-1 text-foreground">{t('aiProviders.empty.title')}</h3>
           <p className="text-[13px] text-center mb-6 max-w-sm">
             {t('aiProviders.empty.desc')}
           </p>
-          <Button onClick={() => setShowAddDialog(true)} className="bojo-button-gradient rounded-md px-6 h-10 text-white">
+          <Button onClick={() => setShowAddDialog(true)} className="bajo-button-gradient rounded-md px-6 h-10 text-white">
             <Plus className="h-4 w-4 mr-2" />
             {t('aiProviders.empty.cta')}
           </Button>
@@ -517,9 +517,9 @@ function ProviderCard({
     <div
       data-testid={`provider-card-${account.id}`}
       className={cn(
-        "bojo-card-hover group flex flex-col p-4 transition-all relative overflow-hidden",
+        "bajo-card-hover group flex flex-col p-4 transition-all relative overflow-hidden",
         isDefault
-          ? "bojo-list-item-selected"
+          ? "bajo-list-item-selected"
           : ""
       )}
     >
@@ -931,7 +931,7 @@ function AddProviderDialog({
 }: AddProviderDialogProps) {
   const { t } = useTranslation('settings');
   const [selectedType, setSelectedType] = useState<ProviderType | null>('shuyan');
-  const [name, setName] = useState('BojoSeek');
+  const [name, setName] = useState('BajoSeek');
   const [apiKey, setApiKey] = useState('');
   const [baseUrl, setBaseUrl] = useState(SHUYAN_BASE_URL);
   const [modelId, setModelId] = useState('');
@@ -1229,7 +1229,7 @@ function AddProviderDialog({
 
       await onAdd(
         selectedType,
-        modelId.trim() || name || 'BojoSeek',
+        modelId.trim() || name || 'BajoSeek',
         normalizedApiKey,
         {
           baseUrl: baseUrl.trim(),
@@ -1249,10 +1249,10 @@ function AddProviderDialog({
     <div data-testid="add-provider-dialog" className="fixed inset-0 z-50 bg-black/55 flex items-center justify-center p-4">
       <Card className="w-full max-w-2xl max-h-[90vh] flex flex-col rounded-lg border border-black/10 dark:border-white/10 shadow-2xl bg-[#f3f1e9] dark:bg-card overflow-hidden">
         <CardHeader className="relative shrink-0 border-b border-black/10 pb-4 dark:border-white/10">
-          <div className="bojo-page-kicker mb-1">ADD MODEL</div>
+          <div className="bajo-page-kicker mb-1">ADD MODEL</div>
           <CardTitle className="text-2xl font-bold">添加模型</CardTitle>
           <CardDescription className="text-[15px] mt-1 text-foreground/70">
-            输入 Base URL、API Key 和模型名称来添加 BojoSeek 可用模型。
+            输入 Base URL、API Key 和模型名称来添加 BajoSeek 可用模型。
           </CardDescription>
           <Button
             data-testid="add-provider-close-button"
@@ -1296,7 +1296,7 @@ function AddProviderDialog({
           ) : (
             <div className="space-y-6">
               <div className="rounded-2xl bg-white dark:bg-card border border-black/5 dark:border-white/5 shadow-sm p-4">
-                <p className="font-semibold text-[15px]">BojoSeek 模型接口</p>
+                <p className="font-semibold text-[15px]">BajoSeek 模型接口</p>
                 <p className="text-[13px] text-muted-foreground mt-1">
                   默认使用书言网关，也可以改成其它 OpenAI 兼容 Base URL。
                 </p>
@@ -1684,7 +1684,7 @@ function AddProviderDialog({
                 <Button
                   data-testid="add-provider-submit-button"
                   onClick={handleAdd}
-                  className={cn("bojo-button-gradient rounded-md px-8 h-[42px] text-[13px] font-semibold text-white shadow-sm", useOAuthFlow && "hidden")}
+                  className={cn("bajo-button-gradient rounded-md px-8 h-[42px] text-[13px] font-semibold text-white shadow-sm", useOAuthFlow && "hidden")}
                   disabled={!selectedType || saving || validating || !baseUrl.trim() || !apiKey.trim() || !modelId.trim()}
                 >
                   {saving ? (

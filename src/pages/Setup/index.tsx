@@ -59,7 +59,7 @@ const getSteps = (t: TFunction): SetupStep[] => [
   },
 ];
 
-import bojoClawIcon from '@/assets/logo.png';
+import bajoClawIcon from '@/assets/logo.png';
 
 interface DefaultSkill {
   id: string;
@@ -68,7 +68,7 @@ interface DefaultSkill {
 }
 
 // NOTE: Channel types moved to Settings > Channels page
-// NOTE: BojoClaw bundles OpenClaw and the BojoSeek integration; first run must stay offline-safe.
+// NOTE: BajoClaw bundles OpenClaw and the BajoSeek integration; first run must stay offline-safe.
 
 export function Setup() {
   const { t } = useTranslation(['setup', 'channels']);
@@ -224,7 +224,7 @@ function WelcomeContent() {
   return (
     <div data-testid="setup-welcome-step" className="text-center space-y-4">
       <div className="mb-4 flex justify-center">
-        <img src={bojoClawIcon} alt="BojoClaw" className="h-16 w-16" />
+        <img src={bajoClawIcon} alt="BajoClaw" className="h-16 w-16" />
       </div>
       <h2 className="text-xl font-semibold">{t('welcome.title')}</h2>
       <p className="text-muted-foreground">

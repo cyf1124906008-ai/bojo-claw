@@ -25,9 +25,9 @@ function getElectronApp() {
   }
 
   const fallbackUserData =
-    process.env.BOJO_CLAW_USER_DATA_DIR?.trim()
+    process.env.BAJO_CLAW_USER_DATA_DIR?.trim()
     || process.env.CLAWX_USER_DATA_DIR?.trim()
-    || join(homedir(), '.bojo-claw');
+    || join(homedir(), '.bajo-claw');
   const fallbackAppPath = process.cwd();
   const fallbackApp: ElectronAppLike = {
     isPackaged: false,
@@ -53,11 +53,11 @@ export function expandPath(path: string): string {
 /**
  * Get the isolated home directory used by the embedded OpenClaw runtime.
  *
- * Keeping this under BojoClaw's userData directory prevents BojoClaw from
+ * Keeping this under BajoClaw's userData directory prevents BajoClaw from
  * reading or mutating a user's existing ClawX/OpenClaw configuration.
  */
 export function getOpenClawHomeDir(): string {
-  return process.env.BOJO_CLAW_OPENCLAW_HOME?.trim()
+  return process.env.BAJO_CLAW_OPENCLAW_HOME?.trim()
     || join(getDataDir(), 'openclaw-home');
 }
 
@@ -65,7 +65,7 @@ export function getOpenClawHomeDir(): string {
  * Get OpenClaw config directory
  */
 export function getOpenClawConfigDir(): string {
-  return process.env.BOJO_CLAW_OPENCLAW_DIR?.trim()
+  return process.env.BAJO_CLAW_OPENCLAW_DIR?.trim()
     || join(getOpenClawHomeDir(), '.openclaw');
 }
 
@@ -77,7 +77,7 @@ export function getOpenClawSkillsDir(): string {
 }
 
 /**
- * Get BojoClaw config directory
+ * Get BajoClaw config directory
  */
 export function getClawXConfigDir(): string {
   return join(getDataDir(), 'config');

@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import { logger } from '../utils/logger';
 import { getSetting } from '../utils/store';
 
-const LINUX_AUTOSTART_FILE = join('.config', 'autostart', 'bojo-claw.desktop');
+const LINUX_AUTOSTART_FILE = join('.config', 'autostart', 'bajo-claw.desktop');
 
 function quoteDesktopArg(value: string): string {
   if (!value) return '""';
@@ -30,8 +30,8 @@ function getLinuxDesktopEntry(): string {
     '[Desktop Entry]',
     'Type=Application',
     'Version=1.0',
-    'Name=BojoClaw',
-    'Comment=BojoClaw - AI Assistant',
+    'Name=BajoClaw',
+    'Comment=BajoClaw - AI Assistant',
     `Exec=${getLinuxExecCommand()}`,
     'Terminal=false',
     'Categories=Utility;',

@@ -149,7 +149,7 @@ export function buildGatewayConnectFrame(options: {
         maxProtocol: 3,
         client: {
           id: clientId,
-          displayName: 'BojoClaw',
+          displayName: 'BajoClaw',
           version: '0.1.0',
           platform: options.platform,
           mode: clientMode,

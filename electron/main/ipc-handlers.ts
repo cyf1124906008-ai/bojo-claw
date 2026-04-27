@@ -935,7 +935,7 @@ function registerCronHandlers(gatewayManager: GatewayManager): void {
   });
 
   // Create a new cron job
-  // UI-created tasks have no delivery target — results go to the BojoClaw chat page.
+  // UI-created tasks have no delivery target — results go to the BajoClaw chat page.
   // Tasks created via external channels (Feishu, Discord, etc.) are handled
   // directly by the OpenClaw Gateway and do not pass through this IPC handler.
   ipcMain.handle('cron:create', async (_, input: {
@@ -953,7 +953,7 @@ function registerCronHandlers(gatewayManager: GatewayManager): void {
         enabled: input.enabled ?? true,
         wakeMode: 'next-heartbeat',
         sessionTarget: 'isolated',
-        // UI-created jobs deliver results via BojoClaw WebSocket chat events,
+        // UI-created jobs deliver results via BajoClaw WebSocket chat events,
         // not external messaging channels.  Setting mode='none' prevents
         // the Gateway from attempting channel delivery (which would fail
         // with "Channel is required" when no channels are configured).
@@ -1102,7 +1102,7 @@ function registerUvHandlers(): void {
     return await checkUvInstalled();
   });
 
-  // Verify bundled uv. BojoClaw ships with OpenClaw already built, so first run
+  // Verify bundled uv. BajoClaw ships with OpenClaw already built, so first run
   // must not download managed Python from GitHub/PyPI on end-user machines.
   ipcMain.handle('uv:install-all', async () => {
     try {
@@ -2038,7 +2038,7 @@ function registerProviderHandlers(gatewayManager: GatewayManager): void {
         const resolvedBaseUrl = options?.baseUrl || provider?.baseUrl || registryBaseUrl;
         const resolvedProtocol = options?.apiProtocol || provider?.apiProtocol;
 
-        console.log(`[bojo-claw-validate] validating provider type: ${providerType}`);
+        console.log(`[bajo-claw-validate] validating provider type: ${providerType}`);
         return await validateApiKeyWithProvider(providerType, apiKey, {
           baseUrl: resolvedBaseUrl,
           apiProtocol: resolvedProtocol,
@@ -2374,7 +2374,7 @@ async function generateImagePreview(filePath: string, mimeType: string): Promise
 
 /**
  * File staging IPC handlers
- * Stage files to BojoClaw's isolated OpenClaw media/outbound directory for gateway access
+ * Stage files to BajoClaw's isolated OpenClaw media/outbound directory for gateway access
  */
 function registerFileHandlers(): void {
   // Stage files from real disk paths (used with dialog:open)

@@ -60,7 +60,7 @@
   "source": {
     "badge": {
       "bundled": "Bundled",
-      "bojoLocal": "Bojo built-in",
+      "bajoLocal": "Bajo built-in",
       "managed": "Managed",
       "workspace": "Workspace",
       "extra": "Extra dirs",

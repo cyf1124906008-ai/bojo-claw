@@ -526,7 +526,7 @@ export function ChannelConfigModal({
       >
         <CardHeader className="flex flex-row items-start justify-between border-b border-black/10 pb-4 shrink-0 dark:border-white/10">
           <div>
-            <div className="bojo-page-kicker mb-1">BOJOSEEK CHANNEL</div>
+            <div className="bajo-page-kicker mb-1">BAJOSEEK CHANNEL</div>
             <CardTitle className="text-2xl font-bold tracking-tight">
               {selectedType
                 ? isExistingConfig
@@ -560,7 +560,7 @@ export function ChannelConfigModal({
                     key={type}
                     onClick={() => setSelectedType(type)}
                     className={cn(
-                      'bojo-card-hover group flex items-start gap-4 p-4 transition-all text-left relative overflow-hidden shadow-sm',
+                      'bajo-card-hover group flex items-start gap-4 p-4 transition-all text-left relative overflow-hidden shadow-sm',
                       isConfigured
                         ? 'border-green-500/40 bg-green-500/5 dark:bg-green-500/10'
                         : 'border-black/5 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5'
@@ -879,7 +879,7 @@ interface ConfigFieldProps {
 function ChannelLogo({ type }: { type: ChannelType }) {
   switch (type) {
     case 'bajoseek':
-      return <img src={bajoseekIcon} alt="BojoSeek" className="w-[22px] h-[22px] dark:invert" />;
+      return <img src={bajoseekIcon} alt="BajoSeek" className="w-[22px] h-[22px] dark:invert" />;
     case 'telegram':
       return <img src={telegramIcon} alt="Telegram" className="w-[22px] h-[22px] dark:invert" />;
     case 'discord':

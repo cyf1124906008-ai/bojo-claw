@@ -180,7 +180,7 @@ export function fixupPluginManifest(targetDir: string): void {
   // 3. Fix hardcoded plugin IDs in compiled JS entry files.
   //    The Gateway validates that the JS export's `id` matches the manifest.
   patchPluginEntryIds(targetDir);
-  patchBojoSeekDefaultWsUrl(targetDir);
+  patchBajoSeekDefaultWsUrl(targetDir);
 }
 
 /**
@@ -244,7 +244,7 @@ function shouldBundlePeerDependencies(npmName: string): boolean {
   return npmName === '@bajoseek/openclaw-bajoseek';
 }
 
-function patchBojoSeekDefaultWsUrl(targetDir: string): void {
+function patchBajoSeekDefaultWsUrl(targetDir: string): void {
   const pkgPath = join(targetDir, 'package.json');
   let pkg: Record<string, unknown>;
   try {
@@ -262,7 +262,7 @@ function patchBojoSeekDefaultWsUrl(targetDir: string): void {
       const patched = original.replaceAll('ws://14.103.246.65:19090', 'wss://ws.bajoseek.com');
       if (patched !== original) {
         writeFileSync(fsPath(filePath), patched, 'utf-8');
-        logger.info(`[plugin] Patched BojoSeek default WebSocket URL in ${rel}`);
+        logger.info(`[plugin] Patched BajoSeek default WebSocket URL in ${rel}`);
       }
     } catch {
       // ignore optional patch failures
@@ -669,8 +669,8 @@ export function ensureWeChatPluginInstalled(): { installed: boolean; warning?: s
   return ensurePluginInstalled('openclaw-weixin', buildCandidateSources('openclaw-weixin'), 'WeChat');
 }
 
-export function ensureBojoSeekPluginInstalled(): { installed: boolean; warning?: string } {
-  return ensurePluginInstalled('bajoseek', buildCandidateSources('bajoseek'), 'BojoSeek');
+export function ensureBajoSeekPluginInstalled(): { installed: boolean; warning?: string } {
+  return ensurePluginInstalled('bajoseek', buildCandidateSources('bajoseek'), 'BajoSeek');
 }
 
 // ── Bulk startup installer ───────────────────────────────────────────────────
@@ -684,7 +684,7 @@ const ALL_BUNDLED_PLUGINS = [
 
   { fn: ensureFeishuPluginInstalled, label: 'Feishu' },
   { fn: ensureWeChatPluginInstalled, label: 'WeChat' },
-  { fn: ensureBojoSeekPluginInstalled, label: 'BojoSeek' },
+  { fn: ensureBajoSeekPluginInstalled, label: 'BajoSeek' },
 ] as const;
 
 /**

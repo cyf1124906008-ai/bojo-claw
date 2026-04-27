@@ -60,7 +60,7 @@
   "source": {
     "badge": {
       "bundled": "内蔵",
-      "bojoLocal": "Bojo 内蔵",
+      "bajoLocal": "Bajo 内蔵",
       "managed": "管理ディレクトリ",
       "workspace": "ワークスペース",
       "extra": "追加ディレクトリ",

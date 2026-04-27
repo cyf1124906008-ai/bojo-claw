@@ -70,7 +70,7 @@ function NavItem({ to, icon, label, badge, collapsed, onClick, testId }: NavItem
           'relative flex min-h-[42px] items-center gap-3 overflow-hidden rounded-md border border-transparent px-2 py-0 text-[14px] font-semibold transition-colors',
           'hover:border-blue-500/20 hover:bg-white/45 dark:hover:bg-white/10 text-foreground/78',
           isActive
-            ? 'bojo-nav-active text-foreground'
+            ? 'bajo-nav-active text-foreground'
             : '',
           collapsed && 'mx-auto h-10 w-10 justify-center px-0'
         )
@@ -78,7 +78,7 @@ function NavItem({ to, icon, label, badge, collapsed, onClick, testId }: NavItem
     >
       {({ isActive }) => (
         <>
-          <div className={cn("bojo-nav-icon-box flex h-8 w-8 shrink-0 items-center justify-center rounded-md", isActive ? "bojo-nav-icon-active" : "text-muted-foreground")}>
+          <div className={cn("bajo-nav-icon-box flex h-8 w-8 shrink-0 items-center justify-center rounded-md", isActive ? "bajo-nav-icon-active" : "text-muted-foreground")}>
             {icon}
           </div>
           {!collapsed && (
@@ -245,7 +245,7 @@ export function Sidebar() {
     <aside
       data-testid="sidebar"
       className={cn(
-        'bojo-sidebar flex min-h-0 shrink-0 flex-col overflow-hidden border-r border-black/10 transition-all duration-300 dark:border-white/10',
+        'bajo-sidebar flex min-h-0 shrink-0 flex-col overflow-hidden border-r border-black/10 transition-all duration-300 dark:border-white/10',
         sidebarCollapsed ? 'w-[68px]' : 'w-[248px]'
       )}
     >
@@ -254,14 +254,14 @@ export function Sidebar() {
         {!sidebarCollapsed && (
           <div className="flex min-w-0 items-center gap-3 overflow-hidden">
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white/75 shadow-sm ring-1 ring-black/10 dark:bg-white/10 dark:ring-white/10">
-              <img src={logoPng} alt="BojoClaw" className="h-5 w-5 dark:invert" />
+              <img src={logoPng} alt="BajoClaw" className="h-5 w-5 dark:invert" />
             </div>
             <div className="min-w-0">
               <span className="block truncate whitespace-nowrap text-[14px] font-bold text-foreground">
-                BojoClaw
+                BajoClaw
               </span>
               <span className="block truncate text-[11px] font-medium text-foreground/55">
-                BojoSeek 智能连接端
+                BajoSeek 智能连接端
               </span>
             </div>
           </div>
@@ -290,7 +290,7 @@ export function Sidebar() {
             navigate('/');
           }}
           className={cn(
-            'bojo-new-chat flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-[14px] font-semibold transition-colors',
+            'bajo-new-chat flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-[14px] font-semibold transition-colors',
             'text-white shadow-sm',
             sidebarCollapsed && 'justify-center px-0',
           )}
@@ -301,10 +301,10 @@ export function Sidebar() {
           {!sidebarCollapsed && <span className="flex-1 text-left overflow-hidden text-ellipsis whitespace-nowrap">新建对话</span>}
         </button>
 
-        <div className={cn('bojo-sidebar-panel mt-3 flex flex-col gap-1 p-1.5', sidebarCollapsed && 'items-center bg-transparent p-0 shadow-none')}>
+        <div className={cn('bajo-sidebar-panel mt-3 flex flex-col gap-1 p-1.5', sidebarCollapsed && 'items-center bg-transparent p-0 shadow-none')}>
           {!sidebarCollapsed && (
             <div className="px-2 pb-1 pt-1 text-[11px] font-bold tracking-[0.08em] text-foreground/55">
-              BOJO 工作台
+              BAJO 工作台
             </div>
           )}
 
@@ -338,7 +338,7 @@ export function Sidebar() {
                           'w-full text-left rounded-md px-2.5 py-2 text-[13px] transition-colors pr-7',
                           'hover:bg-black/5 dark:hover:bg-white/5',
                           isOnChat && currentSessionKey === s.key
-                            ? 'bojo-nav-active text-foreground font-medium'
+                            ? 'bajo-nav-active text-foreground font-medium'
                             : 'text-foreground/75',
                         )}
                       >
@@ -377,7 +377,7 @@ export function Sidebar() {
 
       {/* Footer */}
       <div className="mt-auto border-t border-black/10 p-3 dark:border-white/10">
-        <div className={cn('bojo-sidebar-panel flex flex-col gap-1 p-1.5', sidebarCollapsed && 'items-center bg-transparent p-0 shadow-none')}>
+        <div className={cn('bajo-sidebar-panel flex flex-col gap-1 p-1.5', sidebarCollapsed && 'items-center bg-transparent p-0 shadow-none')}>
         <NavLink
             to="/settings"
             data-testid="sidebar-nav-settings"
@@ -385,14 +385,14 @@ export function Sidebar() {
               cn(
                 'flex items-center gap-3 rounded-md px-2 py-2 text-[14px] font-semibold transition-colors',
                 'hover:border-blue-500/20 hover:bg-white/45 dark:hover:bg-white/10 text-foreground/78 border border-transparent',
-                isActive && 'bojo-nav-active text-foreground',
+                isActive && 'bajo-nav-active text-foreground',
                 sidebarCollapsed ? 'justify-center px-0' : ''
               )
             }
           >
           {({ isActive }) => (
             <>
-              <div className={cn("bojo-nav-icon-box flex h-8 w-8 shrink-0 items-center justify-center rounded-md", isActive ? "bojo-nav-icon-active" : "text-muted-foreground")}>
+              <div className={cn("bajo-nav-icon-box flex h-8 w-8 shrink-0 items-center justify-center rounded-md", isActive ? "bajo-nav-icon-active" : "text-muted-foreground")}>
                 <SettingsIcon className="h-[18px] w-[18px]" strokeWidth={2} />
               </div>
               {!sidebarCollapsed && <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">{t('sidebar.settings')}</span>}
@@ -410,7 +410,7 @@ export function Sidebar() {
           )}
           onClick={openDevConsole}
         >
-          <div className="bojo-nav-icon-box flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground">
+          <div className="bajo-nav-icon-box flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground">
             <Terminal className="h-[18px] w-[18px]" strokeWidth={2} />
           </div>
           {!sidebarCollapsed && (

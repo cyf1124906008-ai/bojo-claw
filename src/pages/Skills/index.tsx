@@ -41,7 +41,7 @@ import type { TFunction } from 'i18next';
 const INSTALL_ERROR_CODES = new Set(['installTimeoutError', 'installRateLimitError']);
 const FETCH_ERROR_CODES = new Set(['fetchTimeoutError', 'fetchRateLimitError', 'fetchUnavailableError', 'timeoutError', 'rateLimitError']);
 const SEARCH_ERROR_CODES = new Set(['searchTimeoutError', 'searchRateLimitError', 'searchUnavailableError', 'timeoutError', 'rateLimitError']);
-const BOJO_CLAW_MARKETPLACE_URL = 'https://clawd.org.cn';
+const BAJO_CLAW_MARKETPLACE_URL = 'https://clawd.org.cn';
 
 
 
@@ -63,7 +63,7 @@ function resolveSkillSourceLabel(skill: Skill, t: TFunction<'skills'>): string {
   }
   if (source === 'openclaw-bundled') return t('source.badge.bundled', { defaultValue: 'Bundled' });
   if (source === 'openclaw-managed') return t('source.badge.managed', { defaultValue: 'Managed' });
-  if (source === 'bojo-local') return t('source.badge.bojoLocal', { defaultValue: 'Bojo 内置' });
+  if (source === 'bajo-local') return t('source.badge.bajoLocal', { defaultValue: 'Bajo 内置' });
   if (source === 'clawx-preinstalled') return t('source.badge.preinstalled', { defaultValue: '内置' });
   if (source === 'openclaw-workspace') return t('source.badge.workspace', { defaultValue: 'Workspace' });
   if (source === 'openclaw-extra') return t('source.badge.extra', { defaultValue: 'Extra dirs' });
@@ -72,7 +72,7 @@ function resolveSkillSourceLabel(skill: Skill, t: TFunction<'skills'>): string {
   return source;
 }
 
-const BOJO_NO_KEY_SKILL_SLUGS = new Set([
+const BAJO_NO_KEY_SKILL_SLUGS = new Set([
   'pdf',
   'xlsx',
   'docx',
@@ -83,15 +83,15 @@ const BOJO_NO_KEY_SKILL_SLUGS = new Set([
   'fund-etf-analysis',
 ]);
 
-function isBojoManagedSkill(skill: Skill): boolean {
+function isBajoManagedSkill(skill: Skill): boolean {
   const source = (skill.source || '').trim().toLowerCase();
   const slug = (skill.slug || skill.id || '').trim().toLowerCase();
   return skill.isBundled
     || source === 'openclaw-bundled'
     || source === 'openclaw-managed'
     || source === 'clawx-preinstalled'
-    || source === 'bojo-local'
-    || BOJO_NO_KEY_SKILL_SLUGS.has(slug);
+    || source === 'bajo-local'
+    || BAJO_NO_KEY_SKILL_SLUGS.has(slug);
 }
 
 function hasSavedSkillConfig(skill: Skill): boolean {
@@ -133,7 +133,7 @@ function SkillDetailDialog({ skill, isOpen, onClose, onToggle, onUninstall, onOp
 
   const handleOpenClawhub = async () => {
     if (!skill?.slug) return;
-    await invokeIpc('shell:openExternal', `${BOJO_CLAW_MARKETPLACE_URL}/s/${skill.slug}`);
+    await invokeIpc('shell:openExternal', `${BAJO_CLAW_MARKETPLACE_URL}/s/${skill.slug}`);
   };
 
   const handleOpenEditor = async () => {
@@ -220,8 +220,8 @@ function SkillDetailDialog({ skill, isOpen, onClose, onToggle, onUninstall, onOp
 
   if (!skill) return null;
   const displaySkill = getLocalizedSkill(skill);
-  const showAdvancedConfig = !skill.isCore && (!isBojoManagedSkill(skill) || hasSavedSkillConfig(skill));
-  const showExternalLinks = Boolean(skill.slug && !skill.isBundled && !skill.isCore && !isBojoManagedSkill(skill));
+  const showAdvancedConfig = !skill.isCore && (!isBajoManagedSkill(skill) || hasSavedSkillConfig(skill));
+  const showExternalLinks = Boolean(skill.slug && !skill.isBundled && !skill.isCore && !isBajoManagedSkill(skill));
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -231,7 +231,7 @@ function SkillDetailDialog({ skill, isOpen, onClose, onToggle, onUninstall, onOp
       >
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto px-8 py-10">
-          <div className="bojo-panel mb-8 flex flex-col items-center px-5 py-6">
+          <div className="bajo-panel mb-8 flex flex-col items-center px-5 py-6">
             <div className="w-16 h-16 flex items-center justify-center rounded-md bg-white dark:bg-accent border border-black/5 dark:border-white/5 shrink-0 mb-4 relative shadow-sm">
               <span className="text-3xl">{skill.icon || '🔧'}</span>
               {skill.isCore && (
@@ -654,22 +654,22 @@ export function Skills() {
       <div className="w-full max-w-5xl mx-auto flex flex-col h-full p-10 pt-16">
 
         {/* Header */}
-        <div className="bojo-page-header mb-5 shrink-0 px-6 py-5">
+        <div className="bajo-page-header mb-5 shrink-0 px-6 py-5">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
-              <div className="bojo-page-kicker mb-2">OPENCLAW SKILLS</div>
+              <div className="bajo-page-kicker mb-2">OPENCLAW SKILLS</div>
               <h1 className="mb-2 text-3xl font-bold text-foreground">
                 能力中心
               </h1>
               <p className="max-w-2xl text-[14px] font-medium leading-6 text-foreground/70">
-                管理内置能力、市场技能和投资分析工具，启用后即可被 BojoSeek 会话调用。
+                管理内置能力、市场技能和投资分析工具，启用后即可被 BajoSeek 会话调用。
               </p>
             </div>
 
             <div className="flex flex-wrap gap-2 md:justify-end">
-              <span className="bojo-stat-chip">全部 {sourceStats.all}</span>
-              <span className="bojo-stat-chip">内置 {sourceStats.builtIn}</span>
-              <span className="bojo-stat-chip">市场 {sourceStats.marketplace}</span>
+              <span className="bajo-stat-chip">全部 {sourceStats.all}</span>
+              <span className="bajo-stat-chip">内置 {sourceStats.builtIn}</span>
+              <span className="bajo-stat-chip">市场 {sourceStats.marketplace}</span>
             </div>
           </div>
 
@@ -697,7 +697,7 @@ export function Skills() {
         )}
 
         {/* Sub Navigation and Actions */}
-        <div className="bojo-toolbar flex flex-col md:flex-row md:items-center justify-between px-4 py-3 mb-4 shrink-0 gap-4">
+        <div className="bajo-toolbar flex flex-col md:flex-row md:items-center justify-between px-4 py-3 mb-4 shrink-0 gap-4">
           <div className="flex items-center flex-wrap gap-4 text-[14px]">
             <div className="relative group flex items-center bg-black/5 dark:bg-white/5 rounded-full px-3 py-1.5 focus-within:bg-black/10 transition-colors border border-transparent focus-within:border-black/10 dark:focus-within:border-white/10 mr-2">
               <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
@@ -718,13 +718,13 @@ export function Skills() {
               )}
             </div>
 
-            <div className="bojo-segmented-filter flex h-9 items-center gap-1 rounded-full border border-black/10 p-1 text-[13px] dark:border-white/10">
+            <div className="bajo-segmented-filter flex h-9 items-center gap-1 rounded-full border border-black/10 p-1 text-[13px] dark:border-white/10">
               <button
                 onClick={() => setSelectedSource('all')}
                 className={cn(
                   "flex h-7 min-w-[76px] items-center justify-center gap-1.5 rounded-full border border-transparent px-3 font-medium transition-colors",
                   selectedSource === 'all'
-                    ? "bojo-segmented-filter-active text-foreground"
+                    ? "bajo-segmented-filter-active text-foreground"
                     : "text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/5"
                 )}
               >
@@ -735,7 +735,7 @@ export function Skills() {
                 className={cn(
                   "flex h-7 min-w-[76px] items-center justify-center gap-1.5 rounded-full border border-transparent px-3 font-medium transition-colors",
                   selectedSource === 'built-in'
-                    ? "bojo-segmented-filter-active text-foreground"
+                    ? "bajo-segmented-filter-active text-foreground"
                     : "text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/5"
                 )}
               >
@@ -746,7 +746,7 @@ export function Skills() {
                 className={cn(
                   "flex h-7 min-w-[76px] items-center justify-center gap-1.5 rounded-full border border-transparent px-3 font-medium transition-colors",
                   selectedSource === 'marketplace'
-                    ? "bojo-segmented-filter-active text-foreground"
+                    ? "bajo-segmented-filter-active text-foreground"
                     : "text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/5"
                 )}
               >
@@ -823,9 +823,9 @@ export function Skills() {
                 <div
                   key={skill.id}
                   className={cn(
-                    "bojo-card-hover group flex min-h-[82px] flex-row items-center justify-between px-3 py-3.5 transition-colors cursor-pointer",
+                    "bajo-card-hover group flex min-h-[82px] flex-row items-center justify-between px-3 py-3.5 transition-colors cursor-pointer",
                     isSelected
-                      ? "bojo-list-item-selected"
+                      ? "bajo-list-item-selected"
                       : "hover:bg-black/5 dark:hover:bg-white/5"
                   )}
                   onClick={() => setSelectedSkill(skill)}
@@ -939,8 +939,8 @@ export function Skills() {
                   return (
                     <div
                       key={skill.slug}
-                      className="bojo-card-hover group mb-2 flex flex-row items-center justify-between px-3 py-3.5 transition-colors cursor-pointer last:mb-0"
-                      onClick={() => invokeIpc('shell:openExternal', `${BOJO_CLAW_MARKETPLACE_URL}/s/${skill.slug}`)}
+                      className="bajo-card-hover group mb-2 flex flex-row items-center justify-between px-3 py-3.5 transition-colors cursor-pointer last:mb-0"
+                      onClick={() => invokeIpc('shell:openExternal', `${BAJO_CLAW_MARKETPLACE_URL}/s/${skill.slug}`)}
                     >
                       <div className="flex items-start gap-4 flex-1 overflow-hidden pr-4">
                         <div className="h-10 w-10 shrink-0 flex items-center justify-center text-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-xl overflow-hidden">

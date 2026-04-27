@@ -102,7 +102,7 @@
     "envVar": "Environment Variable: {{var}}",
     "docsTitle": "Setup Guide",
     "docsSubtitle": "Built-in notes. No external page will be opened.",
-    "docsIntro": "Fill in the fields below and save. BojoClaw will restart the gateway automatically so the channel can take effect.",
+    "docsIntro": "Fill in the fields below and save. BajoClaw will restart the gateway automatically so the channel can take effect.",
     "copyDocs": "Copy Guide",
     "channelDescription": "Channel description",
     "connectionMethod": "Connection method",
@@ -138,22 +138,22 @@
   },
   "meta": {
     "bajoseek": {
-      "description": "Connect BojoSeek through the BojoSeek WebSocket plugin so BojoClaw can receive and reply to BojoSeek messages.",
-      "docsUrl": "bojo-claw://docs/bajoseek",
+      "description": "Connect BajoSeek through the BajoSeek WebSocket plugin so BajoClaw can receive and reply to BajoSeek messages.",
+      "docsUrl": "bajo-claw://docs/bajoseek",
       "fields": {
         "botId": {
           "label": "Bot ID",
-          "placeholder": "Paste the Bot ID from the BojoSeek console"
+          "placeholder": "Paste the Bot ID from the BajoSeek console"
         },
         "token": {
           "label": "Token",
-          "placeholder": "Paste the Token from the BojoSeek console"
+          "placeholder": "Paste the Token from the BajoSeek console"
         }
       },
       "instructions": [
-        "Open the BojoSeek console and go to your bot or plugin settings.",
+        "Open the BajoSeek console and go to your bot or plugin settings.",
         "Copy the Bot ID and Token into the fields below.",
-        "Save and connect, then wait for the gateway restart before testing messages in BojoSeek."
+        "Save and connect, then wait for the gateway restart before testing messages in BajoSeek."
       ]
     },
     "telegram": {

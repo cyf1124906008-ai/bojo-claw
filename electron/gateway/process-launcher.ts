@@ -33,7 +33,7 @@ const GATEWAY_FETCH_PRELOAD_SOURCE = `'use strict';
       delete flat['x-title'];
       delete flat['X-Title'];
       flat['HTTP-Referer'] = 'https://github.com/bajoseek/openclaw-bajoseek';
-      flat['X-Title'] = 'BojoClaw';
+      flat['X-Title'] = 'BajoClaw';
       init.headers = flat;
     }
     return _f.call(globalThis, input, init);

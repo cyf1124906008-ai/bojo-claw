@@ -207,7 +207,7 @@ function bundleOnePlugin({ npmName, pluginId }) {
   //    their JS output than what openclaw.plugin.json declares.  The Gateway
   //    validates that these match, so we fix it post-copy.
   patchPluginId(outputDir, pluginId);
-  patchBojoSeekDefaultWsUrl(outputDir, pluginId);
+  patchBajoSeekDefaultWsUrl(outputDir, pluginId);
 
   echo`   ✅ ${pluginId}: copied ${copiedCount} deps (skipped dupes: ${skippedDupes})`;
 }
@@ -266,7 +266,7 @@ function patchPluginId(pluginDir, expectedId) {
   }
 }
 
-function patchBojoSeekDefaultWsUrl(pluginDir, pluginId) {
+function patchBajoSeekDefaultWsUrl(pluginDir, pluginId) {
   if (pluginId !== 'bajoseek') return;
 
   const targetFiles = [
@@ -281,7 +281,7 @@ function patchBojoSeekDefaultWsUrl(pluginDir, pluginId) {
     const patched = original.replaceAll('ws://14.103.246.65:19090', 'wss://ws.bajoseek.com');
     if (patched !== original) {
       fs.writeFileSync(file, patched, 'utf8');
-      echo`   🩹 Patched BojoSeek default WebSocket URL in ${path.relative(pluginDir, file)}`;
+      echo`   🩹 Patched BajoSeek default WebSocket URL in ${path.relative(pluginDir, file)}`;
     }
   }
 }

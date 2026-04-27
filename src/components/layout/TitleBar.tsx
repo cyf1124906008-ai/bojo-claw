@@ -14,7 +14,7 @@ export function TitleBar() {
 
   if (platform === 'darwin') {
     // macOS: just a drag region, traffic lights are native
-    return <div className="drag-region bojo-titlebar h-11 shrink-0 border-b border-black/10 dark:border-white/10" />;
+    return <div className="drag-region bajo-titlebar h-11 shrink-0 border-b border-black/10 dark:border-white/10" />;
   }
 
   // Linux keeps the native frame/title bar for better IME compatibility.
@@ -52,18 +52,18 @@ function WindowsTitleBar() {
   };
 
   return (
-    <div className="drag-region bojo-titlebar flex h-11 shrink-0 items-center justify-between border-b border-black/10 dark:border-white/10">
+    <div className="drag-region bajo-titlebar flex h-11 shrink-0 items-center justify-between border-b border-black/10 dark:border-white/10">
       <div className="flex min-w-0 items-center gap-3 px-4">
         <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-white/70 shadow-sm ring-1 ring-black/10 dark:bg-white/10 dark:ring-white/10">
-          <img src={logoPng} alt="BojoClaw" className="h-4 w-4 dark:invert" />
+          <img src={logoPng} alt="BajoClaw" className="h-4 w-4 dark:invert" />
         </div>
         <div className="flex min-w-0 items-center gap-2">
-          <span className="truncate text-[13px] font-semibold text-foreground">BojoClaw</span>
+          <span className="truncate text-[13px] font-semibold text-foreground">BajoClaw</span>
           <span className="hidden h-4 w-px bg-black/15 dark:bg-white/15 sm:block" />
-          <span className="hidden text-[12px] font-medium text-foreground/60 sm:inline">BojoSeek 桌面工作台</span>
+          <span className="hidden text-[12px] font-medium text-foreground/60 sm:inline">BajoSeek 桌面工作台</span>
         </div>
         <div className="hidden items-center gap-1 rounded-full border border-black/10 bg-white/40 px-2 py-0.5 text-[11px] font-medium text-foreground/70 dark:border-white/10 dark:bg-white/10 md:flex">
-          <ShieldCheck className="h-3 w-3 text-[hsl(var(--bojo-blue))]" />
+          <ShieldCheck className="h-3 w-3 text-[hsl(var(--bajo-blue))]" />
           内置 OpenClaw
         </div>
       </div>
