@@ -25,7 +25,7 @@ import { buildProxyEnv, resolveProxySettings } from '../utils/proxy';
 import { syncProxyConfigToOpenClaw } from '../utils/openclaw-proxy';
 import { logger } from '../utils/logger';
 import { prependPathEntry } from '../utils/env-path';
-import { copyPluginFromNodeModules, ensureBajaSeekPluginInstalled, fixupPluginManifest, cpSyncSafe } from '../utils/plugin-install';
+import { copyPluginFromNodeModules, ensureBojoSeekPluginInstalled, fixupPluginManifest, cpSyncSafe } from '../utils/plugin-install';
 import { stripSystemdSupervisorEnv } from './config-sync-env';
 
 
@@ -107,9 +107,9 @@ function ensureConfiguredPluginsUpgraded(configuredChannels: string[]): void {
   const openclawConfigDir = getOpenClawConfigDir();
   for (const channelType of configuredChannels) {
     if (channelType === 'bajoseek') {
-      const result = ensureBajaSeekPluginInstalled();
+      const result = ensureBojoSeekPluginInstalled();
       if (!result.installed) {
-        logger.warn(`[plugin] Failed to install configured BajaSeek plugin: ${result.warning ?? 'unknown error'}`);
+        logger.warn(`[plugin] Failed to install configured BojoSeek plugin: ${result.warning ?? 'unknown error'}`);
       }
       continue;
     }
@@ -452,8 +452,8 @@ export async function prepareGatewayLaunchContext(port: number): Promise<Gateway
     OPENCLAW_HOME: getOpenClawHomeDir(),
     OPENCLAW_DIR: getOpenClawConfigDir(),
     OPENCLAW_CONFIG: join(getOpenClawConfigDir(), 'openclaw.json'),
-    BAJO_CLAW_OPENCLAW_DIR: getOpenClawConfigDir(),
-    BAJO_CLAW_OPENCLAW_HOME: getOpenClawHomeDir(),
+    BOJO_CLAW_OPENCLAW_DIR: getOpenClawConfigDir(),
+    BOJO_CLAW_OPENCLAW_HOME: getOpenClawHomeDir(),
     HOME: getOpenClawHomeDir(),
     USERPROFILE: getOpenClawHomeDir(),
     OPENCLAW_SKIP_CHANNELS: skipChannels ? '1' : '',

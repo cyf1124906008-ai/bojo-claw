@@ -178,10 +178,10 @@ export function Agents() {
   return (
     <div data-testid="agents-page" className="flex flex-col -m-6 dark:bg-background h-[calc(100vh-2.5rem)] overflow-hidden">
       <div className="w-full max-w-5xl mx-auto flex flex-col h-full p-10 pt-16">
-        <div className="bajo-page-header mb-8 shrink-0 px-6 py-5">
+        <div className="bojo-page-header mb-8 shrink-0 px-6 py-5">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <div className="bajo-page-kicker mb-2">AGENT WORKSPACE</div>
+            <div className="bojo-page-kicker mb-2">AGENT WORKSPACE</div>
             <h1 className="mb-2 text-3xl font-bold text-foreground">
               {t('title')}
             </h1>
@@ -198,7 +198,7 @@ export function Agents() {
             </Button>
             <Button
               onClick={() => setShowAddDialog(true)}
-              className="bajo-button-gradient h-9 rounded-md px-4 text-[13px] font-semibold shadow-none"
+              className="bojo-button-gradient h-9 rounded-md px-4 text-[13px] font-semibold shadow-none"
             >
               <Plus className="h-3.5 w-3.5 mr-2" />
               {t('addAgent')}
@@ -474,7 +474,7 @@ function AddAgentDialog({
             <Button
               onClick={() => void handleSubmit()}
               disabled={saving || !name.trim()}
-              className="bajo-button-gradient h-9 text-[13px] font-semibold rounded-md px-4 shadow-none"
+              className="bojo-button-gradient h-9 text-[13px] font-semibold rounded-md px-4 shadow-none"
             >
               {saving ? (
                 <>

@@ -104,7 +104,7 @@ export const CHANNEL_ICONS: Record<ChannelType, string> = {
  * Channel display names
  */
 export const CHANNEL_NAMES: Record<ChannelType, string> = {
-  bajoseek: 'BajaSeek',
+  bajoseek: 'BojoSeek',
   whatsapp: 'WhatsApp',
   wechat: 'WeChat',
   dingtalk: 'DingTalk',
@@ -122,10 +122,10 @@ export const CHANNEL_NAMES: Record<ChannelType, string> = {
   qqbot: 'QQ Bot',
 };
 
-export const BAJO_SUPPORTED_CHANNELS: ChannelType[] = ['bajoseek'];
+export const BOJO_SUPPORTED_CHANNELS: ChannelType[] = ['bajoseek'];
 
-export function isBajaSupportedChannel(type: string): type is ChannelType {
-  return BAJO_SUPPORTED_CHANNELS.includes(type as ChannelType);
+export function isBojoSupportedChannel(type: string): type is ChannelType {
+  return BOJO_SUPPORTED_CHANNELS.includes(type as ChannelType);
 }
 
 /**
@@ -134,7 +134,7 @@ export function isBajaSupportedChannel(type: string): type is ChannelType {
 export const CHANNEL_META: Record<ChannelType, ChannelMeta> = {
   bajoseek: {
     id: 'bajoseek',
-    name: 'BajaSeek',
+    name: 'BojoSeek',
     icon: 'B',
     description: 'channels:meta.bajoseek.description',
     connectionType: 'token',
@@ -598,12 +598,12 @@ export const CHANNEL_META: Record<ChannelType, ChannelMeta> = {
  * Get primary supported channels (non-plugin, commonly used)
  */
 export function getPrimaryChannels(): ChannelType[] {
-  return BAJO_SUPPORTED_CHANNELS;
+  return BOJO_SUPPORTED_CHANNELS;
 }
 
 /**
  * Get all available channels including plugins
  */
 export function getAllChannels(): ChannelType[] {
-  return BAJO_SUPPORTED_CHANNELS;
+  return BOJO_SUPPORTED_CHANNELS;
 }

@@ -1,42 +1,42 @@
-# BajaClaw
+# BojoClaw
 
-BajaClaw 是为 BajaSeek 场景定制的 OpenClaw 桌面端应用。用户下载安装后，不需要自己准备 Node.js、Git 或 OpenClaw 环境，只需要在应用里填写模型 API Key 和模型名称，就可以通过 BajaSeek Bot 连接使用。
+BojoClaw 是为 BojoSeek 场景定制的 OpenClaw 桌面端应用。用户下载安装后，不需要自己准备 Node.js、Git 或 OpenClaw 环境，只需要在应用里填写模型 API Key 和模型名称，就可以通过 BojoSeek Bot 连接使用。
 
 ## 下载
 
 请到 GitHub Releases 下载最新版 Windows 安装包：
 
-- 安装包：`baja-claw-1.0.3-win-x64.exe`
+- 安装包：`bojo-claw-1.0.4-win-x64.exe`
 - 系统：Windows 10 / Windows 11，64 位
 - 推荐安装方式：双击安装包，按提示完成安装
 
 发布页地址：
 
-https://github.com/cyf1124906008-ai/baja-claw/releases
+https://github.com/cyf1124906008-ai/bojo-claw/releases
 
 ## 内置内容
 
-- BajaClaw 桌面界面
+- BojoClaw 桌面界面
 - OpenClaw 主体运行环境
 - Windows 版 Node.js 运行时
 - uv 运行时
-- BajaSeek OpenClaw 插件：`@bajoseek/openclaw-bajoseek`
-- 默认 BajaSeek WebSocket 地址：`wss://ws.bajoseek.com`
+- BojoSeek OpenClaw 插件：`@bajoseek/openclaw-bajoseek`
+- 默认 BojoSeek WebSocket 地址：`wss://ws.bajoseek.com`
 - 本地预装技能与中国市场常用技能
 - 面向中国大陆网络环境优化的安装初始化逻辑
 
 ## 快速开始
 
-1. 下载并安装 `baja-claw-1.0.3-win-x64.exe`。
-2. 打开 BajaClaw。
+1. 下载并安装 `bojo-claw-1.0.4-win-x64.exe`。
+2. 打开 BojoClaw。
 3. 进入「模型」页面，点击「添加提供商」。
 4. 填写模型信息：
    - 基础 URL：默认 `https://platform.shuyanai.com/v1`
    - API Key：填写你的模型服务密钥
    - 模型 ID：例如 `glm-5`
 5. 点击验证，验证通过后保存。
-6. 进入「频道」页面，配置 BajaSeek Bot ID 和 Token。
-7. 保存后即可通过 BajaSeek Bot 使用 OpenClaw 能力。
+6. 进入「频道」页面，配置 BojoSeek Bot ID 和 Token。
+7. 保存后即可通过 BojoSeek Bot 使用 OpenClaw 能力。
 
 ## 获取 API Key
 
@@ -46,9 +46,9 @@ https://shuyanai.com?promoter_code=cw9rju23
 
 用户可以在该页面注册或获取模型 API Key。
 
-## BajaSeek Bot 连接
+## BojoSeek Bot 连接
 
-BajaClaw 内置 BajaSeek 插件，频道页面只保留 BajaSeek 连接入口。默认连接地址为：
+BojoClaw 内置 BojoSeek 插件，频道页面只保留 BojoSeek 连接入口。默认连接地址为：
 
 ```text
 wss://ws.bajoseek.com
@@ -63,7 +63,7 @@ wss://ws.bajoseek.com
 
 ### 1. 需要提前安装 OpenClaw 吗？
 
-不需要。BajaClaw 安装包已经内置 OpenClaw 主体和运行所需环境。
+不需要。BojoClaw 安装包已经内置 OpenClaw 主体和运行所需环境。
 
 ### 2. 需要提前安装 Node.js 或 Git 吗？
 
@@ -78,13 +78,13 @@ wss://ws.bajoseek.com
 - 模型 ID 是否填写正确
 - API Key 是否有额度
 
-### 4. BajaSeek 连接不上怎么办？
+### 4. BojoSeek 连接不上怎么办？
 
 请检查：
 
 - Bot ID 是否正确
 - Token / Bot Key 是否正确
-- BajaSeek Bot 后台是否已经配置完成
+- BojoSeek Bot 后台是否已经配置完成
 - 当前网络是否可以连接 `wss://ws.bajoseek.com`
 
 ### 5. 技能市场打不开怎么办？
@@ -103,7 +103,7 @@ https://clawd.org.cn/
 
 ## 技术说明
 
-BajaClaw 基于 OpenClaw 进行桌面端定制，面向 BajaSeek 场景重新封装了交互、模型配置、频道配置、插件内置和安装体验。
+BojoClaw 基于 OpenClaw 进行桌面端定制，面向 BojoSeek 场景重新封装了交互、模型配置、频道配置、插件内置和安装体验。
 
 插件仓库：
 

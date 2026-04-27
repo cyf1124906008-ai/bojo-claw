@@ -3,7 +3,7 @@
  * the OpenClaw Gateway starts.
  *
  * Patches globalThis.fetch so that every request whose URL contains
- * "openrouter.ai" carries the BajaClaw app-attribution headers.
+ * "openrouter.ai" carries the BojoClaw app-attribution headers.
  *
  * The OpenAI SDK (used by OpenClaw) captures globalThis.fetch in its
  * constructor, so patching here guarantees all SDK requests go through
@@ -37,7 +37,7 @@
       delete flat['x-title'];
       delete flat['X-Title'];
       flat['HTTP-Referer'] = 'https://github.com/bajoseek/openclaw-bajoseek';
-      flat['X-Title'] = 'BajaClaw';
+      flat['X-Title'] = 'BojoClaw';
       init.headers = flat;
     }
     return _f.call(globalThis, input, init);

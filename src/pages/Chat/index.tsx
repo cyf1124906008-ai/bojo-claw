@@ -580,7 +580,7 @@ export function Chat() {
       <div className="flex shrink-0 items-center justify-between border-b border-black/10 px-6 py-3 dark:border-white/10">
         <div>
           <div className="text-[13px] font-semibold text-foreground">智能对话</div>
-          <div className="text-[12px] font-medium text-foreground/55">通过 BajaSeek 连接用户消息，调用内置 OpenClaw 能力</div>
+          <div className="text-[12px] font-medium text-foreground/55">通过 BojoSeek 连接用户消息，调用内置 OpenClaw 能力</div>
         </div>
         <ChatToolbar />
       </div>
@@ -759,13 +759,13 @@ function WelcomeScreen() {
   return (
     <div className="mx-auto flex h-[60vh] max-w-3xl flex-col items-center justify-center text-center">
       <div className="mb-6 inline-flex rounded-full border border-black/10 bg-white/40 px-3 py-1 text-[12px] font-semibold text-foreground/70 shadow-sm dark:border-white/10 dark:bg-white/10">
-        BajaSeek AI 工作台
+        BojoSeek AI 工作台
       </div>
       <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
         {t('welcome.subtitle')}
       </h1>
       <p className="mb-7 max-w-xl text-[14px] font-medium leading-6 text-foreground/62">
-        配置模型和 BajaSeek 机器人后，可直接在桌面端处理用户消息、调用技能并管理自动化任务。
+        配置模型和 BojoSeek 机器人后，可直接在桌面端处理用户消息、调用技能并管理自动化任务。
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-lg w-full">

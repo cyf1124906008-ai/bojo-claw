@@ -476,9 +476,9 @@ export function Settings() {
       <div className="w-full max-w-5xl mx-auto flex flex-col h-full p-10 pt-16">
 
         {/* Header */}
-        <div className="bajo-page-header mb-8 shrink-0 px-6 py-5">
+        <div className="bojo-page-header mb-8 shrink-0 px-6 py-5">
           <div>
-            <div className="bajo-page-kicker mb-2">BAJACLAW SETTINGS</div>
+            <div className="bojo-page-kicker mb-2">BOJOCLAW SETTINGS</div>
             <h1 className="mb-2 text-3xl font-bold text-foreground">
               {t('title')}
             </h1>
@@ -492,7 +492,7 @@ export function Settings() {
         <div className="flex-1 overflow-y-auto pr-2 pb-10 min-h-0 -mr-2 space-y-12">
 
           {/* Appearance */}
-          <div className="bajo-panel p-5">
+          <div className="bojo-panel p-5">
             <h2 className="mb-5 text-xl font-bold text-foreground">
               {t('appearance.title')}
             </h2>
@@ -559,7 +559,7 @@ export function Settings() {
           <Separator className="bg-black/5 dark:bg-white/5" />
 
           {/* Gateway */}
-          <div className="bajo-panel p-5">
+          <div className="bojo-panel p-5">
             <h2 className="mb-5 text-xl font-bold text-foreground">
               {t('gateway.title')}
             </h2>
@@ -664,7 +664,7 @@ export function Settings() {
           {devModeUnlocked && (
             <>
               <Separator className="bg-black/5 dark:bg-white/5" />
-              <div data-testid="settings-developer-section" className="bajo-panel p-5">
+              <div data-testid="settings-developer-section" className="bojo-panel p-5">
                 <h2 data-testid="settings-developer-title" className="mb-5 text-xl font-bold text-foreground">
                   {t('developer.title')}
                 </h2>
@@ -1037,7 +1037,7 @@ export function Settings() {
           <Separator className="bg-black/5 dark:bg-white/5" />
 
           {/* Updates */}
-          <div className="bajo-panel p-5">
+          <div className="bojo-panel p-5">
             <h2 className="mb-5 text-xl font-bold text-foreground">
               {t('updates.title')}
             </h2>
@@ -1078,7 +1078,7 @@ export function Settings() {
           <Separator className="bg-black/5 dark:bg-white/5" />
 
           {/* About */}
-          <div className="bajo-panel p-5">
+          <div className="bojo-panel p-5">
             <h2 className="mb-5 text-xl font-bold text-foreground">
               {t('about.title')}
             </h2>

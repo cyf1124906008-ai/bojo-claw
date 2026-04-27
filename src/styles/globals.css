@@ -25,14 +25,14 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 214 100% 48%;
     --radius: 0.5rem;
-    --bajo-yellow: 43 100% 50%;
-    --bajo-blue: 214 100% 48%;
-    --bajo-red: 352 84% 54%;
-    --bajo-gradient: linear-gradient(90deg, hsl(var(--bajo-yellow)) 0%, hsl(var(--bajo-blue)) 52%, hsl(var(--bajo-red)) 100%);
-    --bajo-strong-gradient: linear-gradient(90deg, #d99200 0%, #006df0 52%, #d83045 100%);
-    --bajo-shell-gradient: linear-gradient(90deg, hsl(var(--bajo-yellow) / 0.52) 0%, hsl(var(--bajo-blue) / 0.32) 48%, hsl(var(--bajo-red) / 0.36) 100%);
-    --bajo-surface-gradient: linear-gradient(90deg, hsl(var(--bajo-yellow) / 0.34) 0%, hsl(var(--bajo-blue) / 0.23) 52%, hsl(var(--bajo-red) / 0.26) 100%);
-    --bajo-border-gradient: linear-gradient(180deg, hsl(var(--bajo-yellow)) 0%, hsl(var(--bajo-blue)) 50%, hsl(var(--bajo-red)) 100%);
+    --bojo-yellow: 43 100% 50%;
+    --bojo-blue: 214 100% 48%;
+    --bojo-red: 352 84% 54%;
+    --bojo-gradient: linear-gradient(90deg, hsl(var(--bojo-yellow)) 0%, hsl(var(--bojo-blue)) 52%, hsl(var(--bojo-red)) 100%);
+    --bojo-strong-gradient: linear-gradient(90deg, #d99200 0%, #006df0 52%, #d83045 100%);
+    --bojo-shell-gradient: linear-gradient(90deg, hsl(var(--bojo-yellow) / 0.52) 0%, hsl(var(--bojo-blue) / 0.32) 48%, hsl(var(--bojo-red) / 0.36) 100%);
+    --bojo-surface-gradient: linear-gradient(90deg, hsl(var(--bojo-yellow) / 0.34) 0%, hsl(var(--bojo-blue) / 0.23) 52%, hsl(var(--bojo-red) / 0.26) 100%);
+    --bojo-border-gradient: linear-gradient(180deg, hsl(var(--bojo-yellow)) 0%, hsl(var(--bojo-blue)) 50%, hsl(var(--bojo-red)) 100%);
   }
 
   /* Neutral deep-gray dark palette */
@@ -56,14 +56,14 @@
     --border: 240 3% 24%;
     --input: 240 3% 18%;
     --ring: 214 96% 60%;
-    --bajo-yellow: 43 100% 54%;
-    --bajo-blue: 214 96% 60%;
-    --bajo-red: 352 88% 62%;
-    --bajo-gradient: linear-gradient(90deg, hsl(var(--bajo-yellow)) 0%, hsl(var(--bajo-blue)) 52%, hsl(var(--bajo-red)) 100%);
-    --bajo-strong-gradient: linear-gradient(90deg, #d99500 0%, #2f82ff 52%, #e64b61 100%);
-    --bajo-shell-gradient: linear-gradient(90deg, hsl(var(--bajo-yellow) / 0.24) 0%, hsl(var(--bajo-blue) / 0.22) 48%, hsl(var(--bajo-red) / 0.22) 100%);
-    --bajo-surface-gradient: linear-gradient(90deg, hsl(var(--bajo-yellow) / 0.22) 0%, hsl(var(--bajo-blue) / 0.18) 52%, hsl(var(--bajo-red) / 0.18) 100%);
-    --bajo-border-gradient: linear-gradient(180deg, hsl(var(--bajo-yellow)) 0%, hsl(var(--bajo-blue)) 50%, hsl(var(--bajo-red)) 100%);
+    --bojo-yellow: 43 100% 54%;
+    --bojo-blue: 214 96% 60%;
+    --bojo-red: 352 88% 62%;
+    --bojo-gradient: linear-gradient(90deg, hsl(var(--bojo-yellow)) 0%, hsl(var(--bojo-blue)) 52%, hsl(var(--bojo-red)) 100%);
+    --bojo-strong-gradient: linear-gradient(90deg, #d99500 0%, #2f82ff 52%, #e64b61 100%);
+    --bojo-shell-gradient: linear-gradient(90deg, hsl(var(--bojo-yellow) / 0.24) 0%, hsl(var(--bojo-blue) / 0.22) 48%, hsl(var(--bojo-red) / 0.22) 100%);
+    --bojo-surface-gradient: linear-gradient(90deg, hsl(var(--bojo-yellow) / 0.22) 0%, hsl(var(--bojo-blue) / 0.18) 52%, hsl(var(--bojo-red) / 0.18) 100%);
+    --bojo-border-gradient: linear-gradient(180deg, hsl(var(--bojo-yellow)) 0%, hsl(var(--bojo-blue)) 50%, hsl(var(--bojo-red)) 100%);
   }
 }
 
@@ -79,98 +79,98 @@
 }
 
 @layer components {
-  .bajo-app-shell {
+  .bojo-app-shell {
     background:
-      var(--bajo-shell-gradient),
+      var(--bojo-shell-gradient),
       hsl(var(--background));
   }
 
-  .bajo-titlebar {
+  .bojo-titlebar {
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.70), hsl(var(--background) / 0.56)),
-      var(--bajo-surface-gradient);
+      var(--bojo-surface-gradient);
     backdrop-filter: blur(18px);
   }
 
-  .bajo-brand-line {
-    background: var(--bajo-gradient);
+  .bojo-brand-line {
+    background: var(--bojo-gradient);
   }
 
-  .bajo-main-surface {
+  .bojo-main-surface {
     background:
-      radial-gradient(circle at 0% 0%, hsl(var(--bajo-yellow) / 0.20), transparent 34%),
-      radial-gradient(circle at 100% 8%, hsl(var(--bajo-red) / 0.14), transparent 32%),
+      radial-gradient(circle at 0% 0%, hsl(var(--bojo-yellow) / 0.20), transparent 34%),
+      radial-gradient(circle at 100% 8%, hsl(var(--bojo-red) / 0.14), transparent 32%),
       linear-gradient(90deg, hsl(var(--background) / 0.18), hsl(var(--background) / 0.48) 42%, hsl(var(--background) / 0.25)),
-      var(--bajo-shell-gradient);
+      var(--bojo-shell-gradient);
   }
 
-  .bajo-sidebar {
+  .bojo-sidebar {
     position: relative;
     background:
       linear-gradient(180deg, hsl(var(--background) / 0.78), hsl(var(--background) / 0.58)),
-      var(--bajo-surface-gradient);
+      var(--bojo-surface-gradient);
     backdrop-filter: blur(18px);
   }
 
-  .bajo-sidebar::before {
+  .bojo-sidebar::before {
     content: "";
     position: absolute;
     inset: 0 auto 0 0;
     width: 4px;
-    background: var(--bajo-border-gradient);
+    background: var(--bojo-border-gradient);
   }
 
-  .bajo-nav-active {
+  .bojo-nav-active {
     position: relative;
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.74), hsl(var(--background) / 0.44)),
-      var(--bajo-surface-gradient);
-    border-color: hsl(var(--bajo-blue) / 0.28);
-    box-shadow: inset 0 0 0 1px hsl(var(--bajo-yellow) / 0.18);
+      var(--bojo-surface-gradient);
+    border-color: hsl(var(--bojo-blue) / 0.28);
+    box-shadow: inset 0 0 0 1px hsl(var(--bojo-yellow) / 0.18);
   }
 
-  .bajo-nav-active::before {
+  .bojo-nav-active::before {
     content: "";
     position: absolute;
     inset: 7px auto 7px 6px;
     width: 3px;
     border-radius: 999px;
-    background: var(--bajo-border-gradient);
+    background: var(--bojo-border-gradient);
   }
 
-  .bajo-nav-icon-active {
-    color: hsl(var(--bajo-blue));
+  .bojo-nav-icon-active {
+    color: hsl(var(--bojo-blue));
   }
 
-  .bajo-sidebar-panel {
+  .bojo-sidebar-panel {
     border: 1px solid hsl(var(--border) / 0.68);
     border-radius: 8px;
     background: hsl(var(--background) / 0.34);
-    box-shadow: inset 0 1px 0 hsl(var(--bajo-yellow) / 0.16);
+    box-shadow: inset 0 1px 0 hsl(var(--bojo-yellow) / 0.16);
   }
 
-  .bajo-nav-icon-box {
+  .bojo-nav-icon-box {
     background: hsl(var(--background) / 0.55);
     box-shadow: inset 0 0 0 1px hsl(var(--border) / 0.72);
   }
 
-  .bajo-nav-active .bajo-nav-icon-box,
-  .bajo-nav-icon-active.bajo-nav-icon-box {
+  .bojo-nav-active .bojo-nav-icon-box,
+  .bojo-nav-icon-active.bojo-nav-icon-box {
     background: hsl(var(--background) / 0.84);
     box-shadow:
-      inset 0 0 0 1px hsl(var(--bajo-blue) / 0.30),
-      inset 0 -2px 0 hsl(var(--bajo-blue) / 0.75);
+      inset 0 0 0 1px hsl(var(--bojo-blue) / 0.30),
+      inset 0 -2px 0 hsl(var(--bojo-blue) / 0.75);
   }
 
-  .bajo-new-chat {
-    background-image: var(--bajo-strong-gradient);
+  .bojo-new-chat {
+    background-image: var(--bojo-strong-gradient);
   }
 
-  .bajo-new-chat:hover {
+  .bojo-new-chat:hover {
     filter: saturate(1.08) brightness(1.02);
   }
 
-  .bajo-main-surface h1 {
+  .bojo-main-surface h1 {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif !important;
     font-size: clamp(1.85rem, 2.4vw, 2.35rem) !important;
     line-height: 1.14 !important;
@@ -178,7 +178,7 @@
     letter-spacing: 0 !important;
   }
 
-  .bajo-main-surface h2 {
+  .bojo-main-surface h2 {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif !important;
     font-size: 1.25rem !important;
     line-height: 1.25 !important;
@@ -186,73 +186,73 @@
     letter-spacing: 0 !important;
   }
 
-  .bajo-main-surface h3 {
+  .bojo-main-surface h3 {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif !important;
     letter-spacing: 0 !important;
   }
 
-  .bajo-main-surface [class*="rounded-2xl"],
-  .bajo-main-surface [class*="rounded-xl"],
-  .bajo-main-surface [class*="rounded-lg"] {
+  .bojo-main-surface [class*="rounded-2xl"],
+  .bojo-main-surface [class*="rounded-xl"],
+  .bojo-main-surface [class*="rounded-lg"] {
     border-radius: 8px;
   }
 
-  .bajo-main-surface input,
-  .bajo-main-surface textarea,
-  .bajo-main-surface select {
+  .bojo-main-surface input,
+  .bojo-main-surface textarea,
+  .bojo-main-surface select {
     border-radius: 8px !important;
   }
 
-  .bajo-main-surface button {
+  .bojo-main-surface button {
     letter-spacing: 0;
   }
 
-  .bajo-main-surface [class*="max-w-5xl"] {
+  .bojo-main-surface [class*="max-w-5xl"] {
     max-width: 1180px !important;
   }
 
-  .bajo-main-surface [class*="pt-16"] {
+  .bojo-main-surface [class*="pt-16"] {
     padding-top: 34px !important;
   }
 
-  .bajo-main-surface [class*="p-10"] {
+  .bojo-main-surface [class*="p-10"] {
     padding-left: 34px !important;
     padding-right: 34px !important;
   }
 
-  .bajo-main-surface [class*="bg-[#f3f1e9]"] {
+  .bojo-main-surface [class*="bg-[#f3f1e9]"] {
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.92), hsl(var(--background) / 0.82)),
-      var(--bajo-surface-gradient) !important;
+      var(--bojo-surface-gradient) !important;
   }
 
-  .bajo-page-header {
+  .bojo-page-header {
     position: relative;
     overflow: hidden;
     border: 1px solid hsl(var(--border) / 0.80);
     border-radius: 8px;
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.76), hsl(var(--background) / 0.62)),
-      var(--bajo-surface-gradient);
+      var(--bojo-surface-gradient);
     box-shadow: 0 14px 34px rgb(0 0 0 / 0.08);
   }
 
-  .bajo-page-header::before {
+  .bojo-page-header::before {
     content: "";
     position: absolute;
     inset: 0 auto 0 0;
     width: 5px;
-    background: var(--bajo-border-gradient);
+    background: var(--bojo-border-gradient);
   }
 
-  .bajo-page-kicker {
-    color: hsl(var(--bajo-blue) / 0.92);
+  .bojo-page-kicker {
+    color: hsl(var(--bojo-blue) / 0.92);
     font-size: 0.75rem;
     font-weight: 760;
     letter-spacing: 0;
   }
 
-  .bajo-stat-chip {
+  .bojo-stat-chip {
     border: 1px solid hsl(var(--border) / 0.78);
     border-radius: 8px;
     background: hsl(var(--background) / 0.56);
@@ -262,68 +262,68 @@
     font-weight: 650;
   }
 
-  .bajo-panel {
+  .bojo-panel {
     border: 1px solid hsl(var(--border) / 0.82);
     border-radius: 8px;
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.72), hsl(var(--background) / 0.60)),
-      var(--bajo-surface-gradient);
+      var(--bojo-surface-gradient);
     box-shadow: 0 10px 26px rgb(0 0 0 / 0.06);
   }
 
-  .bajo-toolbar {
+  .bojo-toolbar {
     border: 1px solid hsl(var(--border) / 0.82);
     border-radius: 8px;
     background: hsl(var(--background) / 0.58);
-    box-shadow: 0 1px 0 hsl(var(--bajo-yellow) / 0.14);
+    box-shadow: 0 1px 0 hsl(var(--bojo-yellow) / 0.14);
   }
 
-  .bajo-card-hover {
+  .bojo-card-hover {
     border: 1px solid hsl(var(--border) / 0.72);
     border-radius: 8px;
     background: hsl(var(--background) / 0.52);
   }
 
-  .bajo-card-hover:hover {
-    border-color: hsl(var(--bajo-blue) / 0.35);
+  .bojo-card-hover:hover {
+    border-color: hsl(var(--bojo-blue) / 0.35);
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.62), hsl(var(--background) / 0.50)),
-      var(--bajo-surface-gradient);
+      var(--bojo-surface-gradient);
   }
 
-  .bajo-list-item-selected {
-    background: var(--bajo-surface-gradient);
-    border-color: hsl(var(--bajo-blue) / 0.24);
+  .bojo-list-item-selected {
+    background: var(--bojo-surface-gradient);
+    border-color: hsl(var(--bojo-blue) / 0.24);
     box-shadow:
-      inset 3px 0 0 hsl(var(--bajo-blue) / 0.88),
-      0 1px 0 hsl(var(--bajo-yellow) / 0.16);
+      inset 3px 0 0 hsl(var(--bojo-blue) / 0.88),
+      0 1px 0 hsl(var(--bojo-yellow) / 0.16);
   }
 
-  .bajo-list-item-selected:hover {
-    background: var(--bajo-surface-gradient);
+  .bojo-list-item-selected:hover {
+    background: var(--bojo-surface-gradient);
   }
 
-  .bajo-segmented-filter {
+  .bojo-segmented-filter {
     background:
       linear-gradient(90deg, hsl(var(--background) / 0.52), hsl(var(--background) / 0.46)),
-      var(--bajo-surface-gradient);
+      var(--bojo-surface-gradient);
   }
 
-  .bajo-segmented-filter-active {
+  .bojo-segmented-filter-active {
     background: hsl(var(--background) / 0.78);
-    border-color: hsl(var(--bajo-blue) / 0.26);
+    border-color: hsl(var(--bojo-blue) / 0.26);
     box-shadow:
-      inset 0 -2px 0 hsl(var(--bajo-blue) / 0.80),
+      inset 0 -2px 0 hsl(var(--bojo-blue) / 0.80),
       0 1px 2px rgb(0 0 0 / 0.06);
   }
 
-  .bajo-button-gradient {
-    background-image: var(--bajo-strong-gradient);
-    box-shadow: 0 8px 20px hsl(var(--bajo-blue) / 0.20);
+  .bojo-button-gradient {
+    background-image: var(--bojo-strong-gradient);
+    box-shadow: 0 8px 20px hsl(var(--bojo-blue) / 0.20);
     text-shadow: 0 1px 1px rgb(0 0 0 / 0.22);
   }
 
-  .bajo-button-gradient:hover {
+  .bojo-button-gradient:hover {
     filter: saturate(1.08) brightness(1.02);
   }
 }

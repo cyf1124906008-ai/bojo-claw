@@ -21,15 +21,15 @@ import {
 
 const OPENCLAW_DIR = getOpenClawConfigDir();
 const CONFIG_FILE = join(OPENCLAW_DIR, 'openclaw.json');
-const BAJOSEEK_PLUGIN_ID = 'bajoseek';
+const BOJOSEEK_PLUGIN_ID = 'bajoseek';
 const WECOM_PLUGIN_ID = 'wecom';
 // Note: QQBot is a built-in channel since OpenClaw 3.31 — no plugin ID needed.
 const WECHAT_PLUGIN_ID = OPENCLAW_WECHAT_CHANNEL_TYPE;
-const BAJO_SUPPORTED_CHANNEL_IDS = new Set([BAJOSEEK_PLUGIN_ID]);
+const BOJO_SUPPORTED_CHANNEL_IDS = new Set([BOJOSEEK_PLUGIN_ID]);
 const FEISHU_PLUGIN_ID_CANDIDATES = ['openclaw-lark', 'feishu-openclaw-plugin'] as const;
 const DEFAULT_ACCOUNT_ID = 'default';
-const BAJOSEEK_DEFAULT_WS_URL = 'wss://ws.bajoseek.com';
-const BAJOSEEK_VALIDATION_TIMEOUT_MS = 10_000;
+const BOJOSEEK_DEFAULT_WS_URL = 'wss://ws.bajoseek.com';
+const BOJOSEEK_VALIDATION_TIMEOUT_MS = 10_000;
 // Channels whose top-level schema (additionalProperties:false) does NOT
 // include `defaultAccount`.  We still use the multi-account `accounts`
 // map, but strip `defaultAccount` before persisting to avoid plugin
@@ -129,8 +129,8 @@ function resolveStoredChannelType(channelType: string): string {
     return toOpenClawChannelType(channelType);
 }
 
-export function isBajaSupportedChannelType(channelType: string): boolean {
-    return BAJO_SUPPORTED_CHANNEL_IDS.has(resolveStoredChannelType(channelType));
+export function isBojoSupportedChannelType(channelType: string): boolean {
+    return BOJO_SUPPORTED_CHANNEL_IDS.has(resolveStoredChannelType(channelType));
 }
 
 function deriveLegacyWeChatRawAccountId(normalizedId: string): string | undefined {
@@ -527,8 +527,8 @@ async function ensurePluginAllowlist(currentConfig: OpenClawConfig, channelType:
         }
     }
 
-    if (channelType === BAJOSEEK_PLUGIN_ID) {
-        ensurePluginRegistration(currentConfig, BAJOSEEK_PLUGIN_ID);
+    if (channelType === BOJOSEEK_PLUGIN_ID) {
+        ensurePluginRegistration(currentConfig, BOJOSEEK_PLUGIN_ID);
     }
 
     // Note: QQBot is a built-in channel since OpenClaw 3.31 — no plugin registration needed.
@@ -648,12 +648,12 @@ function transformChannelConfig(
         delete transformedConfig.agentId;
     }
 
-    if (channelType === BAJOSEEK_PLUGIN_ID) {
+    if (channelType === BOJOSEEK_PLUGIN_ID) {
         transformedConfig.allowFrom = Array.isArray(transformedConfig.allowFrom)
             ? transformedConfig.allowFrom
             : ['*'];
         transformedConfig.blockStreaming = transformedConfig.blockStreaming ?? true;
-        transformedConfig.wsUrl = BAJOSEEK_DEFAULT_WS_URL;
+        transformedConfig.wsUrl = BOJOSEEK_DEFAULT_WS_URL;
     }
 
     return transformedConfig;
@@ -764,8 +764,8 @@ export async function saveChannelConfig(
 ): Promise<void> {
     return withConfigLock(async () => {
         const resolvedChannelType = resolveStoredChannelType(channelType);
-        if (!isBajaSupportedChannelType(resolvedChannelType)) {
-            throw new Error(`Channel "${channelType}" is not supported by BajaClaw. Supported channels: BajaSeek, WeChat.`);
+        if (!isBojoSupportedChannelType(resolvedChannelType)) {
+            throw new Error(`Channel "${channelType}" is not supported by BojoClaw. Supported channels: BojoSeek, WeChat.`);
         }
         const currentConfig = await readOpenClawConfig();
         const resolvedAccountId = accountId || DEFAULT_ACCOUNT_ID;
@@ -866,7 +866,7 @@ export async function saveChannelConfig(
 
 export async function getChannelConfig(channelType: string, accountId?: string): Promise<ChannelConfigData | undefined> {
     const resolvedChannelType = resolveStoredChannelType(channelType);
-    if (!isBajaSupportedChannelType(resolvedChannelType)) return undefined;
+    if (!isBojoSupportedChannelType(resolvedChannelType)) return undefined;
     const config = await readOpenClawConfig();
     const channelSection = config.channels?.[resolvedChannelType];
     if (!channelSection) return undefined;
@@ -1035,8 +1035,8 @@ export async function deleteChannelConfig(channelType: string): Promise<void> {
             if (resolvedChannelType === 'wecom') {
                 removePluginRegistration(currentConfig, WECOM_PLUGIN_ID);
             }
-            if (resolvedChannelType === BAJOSEEK_PLUGIN_ID) {
-                removePluginRegistration(currentConfig, BAJOSEEK_PLUGIN_ID);
+            if (resolvedChannelType === BOJOSEEK_PLUGIN_ID) {
+                removePluginRegistration(currentConfig, BOJOSEEK_PLUGIN_ID);
             }
             syncBuiltinChannelsWithPluginAllowlist(currentConfig);
             await writeOpenClawConfig(currentConfig);
@@ -1085,7 +1085,7 @@ export async function listConfiguredChannelsFromConfig(config: OpenClawConfig): 
 
     if (config.channels) {
         for (const channelType of Object.keys(config.channels)) {
-            if (!isBajaSupportedChannelType(channelType)) continue;
+            if (!isBojoSupportedChannelType(channelType)) continue;
             const section = config.channels[channelType];
             if (section.enabled === false) continue;
             if (channelHasAnyAccount(section) || Object.keys(section).length > 0) {
@@ -1115,7 +1115,7 @@ export function listConfiguredChannelAccountsFromConfig(config: OpenClawConfig):
     }
 
     for (const [channelType, section] of Object.entries(config.channels)) {
-        if (!isBajaSupportedChannelType(channelType)) continue;
+        if (!isBojoSupportedChannelType(channelType)) continue;
         if (!section || section.enabled === false) continue;
 
         const accounts = getChannelAccountsMap(section);
@@ -1165,8 +1165,8 @@ export async function listConfiguredChannelAccounts(): Promise<Record<string, Co
 export async function setChannelDefaultAccount(channelType: string, accountId: string): Promise<void> {
     return withConfigLock(async () => {
         const resolvedChannelType = resolveStoredChannelType(channelType);
-        if (!isBajaSupportedChannelType(resolvedChannelType)) {
-            throw new Error(`Channel "${channelType}" is not supported by BajaClaw. Supported channels: BajaSeek, WeChat.`);
+        if (!isBojoSupportedChannelType(resolvedChannelType)) {
+            throw new Error(`Channel "${channelType}" is not supported by BojoClaw. Supported channels: BojoSeek, WeChat.`);
         }
         const trimmedAccountId = accountId.trim();
         if (!trimmedAccountId) {
@@ -1264,8 +1264,8 @@ export async function deleteAgentChannelAccounts(agentId: string, ownedChannelAc
 export async function setChannelEnabled(channelType: string, enabled: boolean): Promise<void> {
     return withConfigLock(async () => {
         const resolvedChannelType = resolveStoredChannelType(channelType);
-        if (!isBajaSupportedChannelType(resolvedChannelType)) {
-            throw new Error(`Channel "${channelType}" is not supported by BajaClaw. Supported channels: BajaSeek, WeChat.`);
+        if (!isBojoSupportedChannelType(resolvedChannelType)) {
+            throw new Error(`Channel "${channelType}" is not supported by BojoClaw. Supported channels: BojoSeek, WeChat.`);
         }
         const currentConfig = await readOpenClawConfig();
         cleanupLegacyBuiltInChannelPluginRegistration(currentConfig, resolvedChannelType);
@@ -1278,11 +1278,11 @@ export async function setChannelEnabled(channelType: string, enabled: boolean): 
             }
         }
 
-        if (resolvedChannelType === BAJOSEEK_PLUGIN_ID) {
+        if (resolvedChannelType === BOJOSEEK_PLUGIN_ID) {
             if (enabled) {
-                await ensurePluginAllowlist(currentConfig, BAJOSEEK_PLUGIN_ID);
+                await ensurePluginAllowlist(currentConfig, BOJOSEEK_PLUGIN_ID);
             } else {
-                removePluginRegistration(currentConfig, BAJOSEEK_PLUGIN_ID);
+                removePluginRegistration(currentConfig, BOJOSEEK_PLUGIN_ID);
             }
         }
 
@@ -1412,8 +1412,8 @@ export async function validateChannelCredentials(
     config: Record<string, string>
 ): Promise<CredentialValidationResult> {
     switch (resolveStoredChannelType(channelType)) {
-        case BAJOSEEK_PLUGIN_ID:
-            return validateBajaSeekCredentials(config);
+        case BOJOSEEK_PLUGIN_ID:
+            return validateBojoSeekCredentials(config);
         case 'discord':
             return validateDiscordCredentials(config);
         case 'telegram':
@@ -1423,18 +1423,18 @@ export async function validateChannelCredentials(
     }
 }
 
-async function validateBajaSeekCredentials(
+async function validateBojoSeekCredentials(
     config: Record<string, string>
 ): Promise<CredentialValidationResult> {
     const botId = config.botId?.trim();
     const token = config.token?.trim();
-    const wsUrl = BAJOSEEK_DEFAULT_WS_URL;
+    const wsUrl = BOJOSEEK_DEFAULT_WS_URL;
 
     if (!botId) {
-        return { valid: false, errors: ['请输入 BajaSeek Bot ID'], warnings: [] };
+        return { valid: false, errors: ['请输入 BojoSeek Bot ID'], warnings: [] };
     }
     if (!token) {
-        return { valid: false, errors: ['请输入 BajaSeek Token'], warnings: [] };
+        return { valid: false, errors: ['请输入 BojoSeek Token'], warnings: [] };
     }
     if (!/^wss?:\/\//i.test(wsUrl)) {
         return { valid: false, errors: ['WebSocket 地址必须以 ws:// 或 wss:// 开头'], warnings: [] };
@@ -1457,10 +1457,10 @@ async function validateBajaSeekCredentials(
         const timer = setTimeout(() => {
             finish({
                 valid: false,
-                errors: [`连接 BajaSeek WebSocket 超时：${endpoint}`],
+                errors: [`连接 BojoSeek WebSocket 超时：${endpoint}`],
                 warnings: [],
             });
-        }, BAJOSEEK_VALIDATION_TIMEOUT_MS);
+        }, BOJOSEEK_VALIDATION_TIMEOUT_MS);
 
         try {
             ws = new WebSocket(endpoint, {
@@ -1482,7 +1482,7 @@ async function validateBajaSeekCredentials(
             finish({
                 valid: true,
                 errors: [],
-                warnings: [`BajaSeek WebSocket 连接验证通过：${wsUrl}`],
+                warnings: [`BojoSeek WebSocket 连接验证通过：${wsUrl}`],
                 details: { botId, wsUrl },
             });
         });
@@ -1499,7 +1499,7 @@ async function validateBajaSeekCredentials(
             }
             finish({
                 valid: false,
-                errors: [`BajaSeek WebSocket 握手失败（HTTP ${status}）：请确认 WebSocket 地址是否正确：${endpoint}`],
+                errors: [`BojoSeek WebSocket 握手失败（HTTP ${status}）：请确认 WebSocket 地址是否正确：${endpoint}`],
                 warnings: [],
             });
         });
@@ -1511,7 +1511,7 @@ async function validateBajaSeekCredentials(
                 : '请确认网络、代理或 WebSocket 服务是否可访问。';
             finish({
                 valid: false,
-                errors: [`BajaSeek WebSocket 连接失败：${message}。${dnsHint}`],
+                errors: [`BojoSeek WebSocket 连接失败：${message}。${dnsHint}`],
                 warnings: [],
             });
         });
@@ -1520,7 +1520,7 @@ async function validateBajaSeekCredentials(
             if (!settled) {
                 finish({
                     valid: false,
-                    errors: ['BajaSeek WebSocket 在验证完成前关闭连接'],
+                    errors: ['BojoSeek WebSocket 在验证完成前关闭连接'],
                     warnings: [],
                 });
             }

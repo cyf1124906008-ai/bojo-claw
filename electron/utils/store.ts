@@ -15,7 +15,7 @@ let settingsStoreInstance: any = null;
  * Generate a random token for gateway authentication
  */
 function generateToken(): string {
-  return `baja-claw-${randomBytes(16).toString('hex')}`;
+  return `bojo-claw-${randomBytes(16).toString('hex')}`;
 }
 
 /**
@@ -117,7 +117,7 @@ async function getSettingsStore() {
   if (!settingsStoreInstance) {
     const Store = (await import('electron-store')).default;
     settingsStoreInstance = new Store<AppSettings>({
-      name: 'baja-claw-settings',
+      name: 'bojo-claw-settings',
       defaults: createDefaultSettings(),
     });
   }

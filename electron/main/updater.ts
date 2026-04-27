@@ -3,7 +3,7 @@
  * Handles automatic application updates using electron-updater
  *
  * Update providers are configured in electron-builder.yml.
- * BajaClaw intentionally avoids the legacy ClawX OSS feed so packaged builds
+ * BojoClaw intentionally avoids the legacy ClawX OSS feed so packaged builds
  * never offer a ClawX version or a downgrade.
  */
 import { autoUpdater, UpdateInfo, ProgressInfo, UpdateDownloadedEvent } from 'electron-updater';
@@ -12,9 +12,9 @@ import { logger } from '../utils/logger';
 import { EventEmitter } from 'events';
 import { setQuitting } from './app-state';
 
-/** Optional BajaClaw update feed. Disabled unless explicitly configured. */
-const BAJO_UPDATE_FEED_URL = process.env.BAJO_CLAW_UPDATE_FEED_URL?.trim() || '';
-const BAJO_UPDATES_ENABLED = process.env.BAJO_CLAW_ENABLE_UPDATES === '1' && BAJO_UPDATE_FEED_URL.length > 0;
+/** Optional BojoClaw update feed. Disabled unless explicitly configured. */
+const BOJO_UPDATE_FEED_URL = process.env.BOJO_CLAW_UPDATE_FEED_URL?.trim() || '';
+const BOJO_UPDATES_ENABLED = process.env.BOJO_CLAW_ENABLE_UPDATES === '1' && BOJO_UPDATE_FEED_URL.length > 0;
 
 export interface UpdateStatus {
   status: 'idle' | 'checking' | 'available' | 'not-available' | 'downloading' | 'downloaded' | 'error';
@@ -99,13 +99,13 @@ export class AppUpdater extends EventEmitter {
 
     const version = app.getVersion();
     const channel = detectChannel(version);
-    logger.info(`[Updater] Version: ${version}, channel: ${channel}, enabled=${BAJO_UPDATES_ENABLED}`);
+    logger.info(`[Updater] Version: ${version}, channel: ${channel}, enabled=${BOJO_UPDATES_ENABLED}`);
 
-    if (BAJO_UPDATES_ENABLED) {
+    if (BOJO_UPDATES_ENABLED) {
       autoUpdater.channel = channel;
       autoUpdater.setFeedURL({
         provider: 'generic',
-        url: BAJO_UPDATE_FEED_URL,
+        url: BOJO_UPDATE_FEED_URL,
         useMultipleRangeRequest: false,
       });
     }
@@ -214,8 +214,8 @@ export class AppUpdater extends EventEmitter {
    */
   async checkForUpdates(): Promise<UpdateInfo | null> {
     try {
-      if (!BAJO_UPDATES_ENABLED) {
-        logger.info('[Updater] Update checking disabled; no BajaClaw update feed configured.');
+      if (!BOJO_UPDATES_ENABLED) {
+        logger.info('[Updater] Update checking disabled; no BojoClaw update feed configured.');
         this.updateStatus({ status: 'not-available' });
         return null;
       }

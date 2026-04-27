@@ -14,7 +14,7 @@ import {
   CHANNEL_NAMES,
   CHANNEL_META,
   getPrimaryChannels,
-  isBajaSupportedChannel,
+  isBojoSupportedChannel,
   type ChannelType,
 } from '@/types/channel';
 import { usesPluginManagedQrAccounts } from '@/lib/channel-alias';
@@ -156,7 +156,7 @@ export function Channels() {
   const hasLoadedAgentsRef = useRef(false);
 
   const displayedChannelTypes = getPrimaryChannels().filter((type) => type === 'bajoseek');
-  const visibleChannelGroups = channelGroups.filter((group) => group.channelType === 'bajoseek' && isBajaSupportedChannel(group.channelType));
+  const visibleChannelGroups = channelGroups.filter((group) => group.channelType === 'bajoseek' && isBojoSupportedChannel(group.channelType));
   const visibleAgents = agents;
   const hasStableValue = visibleChannelGroups.length > 0 || visibleAgents.length > 0;
   const isUsingStableValue = hasStableValue && (loading || Boolean(error));
@@ -515,22 +515,22 @@ export function Channels() {
   return (
     <div data-testid="channels-page" className="flex flex-col -m-6 dark:bg-background h-[calc(100vh-2.5rem)] overflow-hidden">
       <div className="w-full max-w-5xl mx-auto flex flex-col h-full p-10 pt-16">
-        <div className="bajo-page-header mb-8 shrink-0 px-6 py-5">
+        <div className="bojo-page-header mb-8 shrink-0 px-6 py-5">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div className="min-w-0">
-            <div className="bajo-page-kicker mb-2">BAJOSEEK BOT CHANNEL</div>
+            <div className="bojo-page-kicker mb-2">BOJOSEEK BOT CHANNEL</div>
             <h1 className="mb-2 text-3xl font-bold text-foreground">
-              BajaSeek 连接中心
+              BojoSeek 连接中心
             </h1>
             <p className="max-w-2xl text-[14px] font-medium leading-6 text-foreground/70">
-              绑定 BajaSeek 机器人账号后，BajaClaw 会通过内置 OpenClaw 插件接收消息、调用模型和技能，并把回复发回用户。
+              绑定 BojoSeek 机器人账号后，BojoClaw 会通过内置 OpenClaw 插件接收消息、调用模型和技能，并把回复发回用户。
             </p>
           </div>
 
           <div className="flex shrink-0 flex-col gap-3 md:items-end">
             <div className="flex flex-wrap gap-2">
-              <span className="bajo-stat-chip">通道 {configuredGroups.length > 0 ? '已配置' : '待配置'}</span>
-              <span className="bajo-stat-chip">网关 {gatewayStatus.state === 'running' ? '运行中' : '未运行'}</span>
+              <span className="bojo-stat-chip">通道 {configuredGroups.length > 0 ? '已配置' : '待配置'}</span>
+              <span className="bojo-stat-chip">网关 {gatewayStatus.state === 'running' ? '运行中' : '未运行'}</span>
             </div>
             <Button
               variant="outline"
@@ -648,11 +648,11 @@ export function Channels() {
             <div className="mb-8">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-xl font-bold text-foreground">已配置连接</h2>
-                <span className="text-[12px] font-medium text-muted-foreground">用于接收 BajaSeek Bot 消息</span>
+                <span className="text-[12px] font-medium text-muted-foreground">用于接收 BojoSeek Bot 消息</span>
               </div>
               <div className="space-y-4">
                 {configuredGroups.map((group) => (
-                  <div key={group.channelType} className="bajo-panel p-4">
+                  <div key={group.channelType} className="bojo-panel p-4">
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="h-[40px] w-[40px] shrink-0 flex items-center justify-center text-foreground bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-full shadow-sm">
@@ -806,7 +806,7 @@ export function Channels() {
 
           <div className="mb-8">
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-foreground">添加 BajaSeek 通道</h2>
+              <h2 className="text-xl font-bold text-foreground">添加 BojoSeek 通道</h2>
               <span className="text-[12px] font-medium text-muted-foreground">按插件标准连接 Bot ID 与 Token</span>
             </div>
 
@@ -826,9 +826,9 @@ export function Channels() {
                       setShowConfigModal(true);
                     }}
                     className={cn(
-                      'bajo-card-hover group relative flex min-h-[118px] items-start gap-4 overflow-hidden p-5 text-left transition-colors',
+                      'bojo-card-hover group relative flex min-h-[118px] items-start gap-4 overflow-hidden p-5 text-left transition-colors',
                       selectedChannelType === type
-                        ? 'bajo-list-item-selected'
+                        ? 'bojo-list-item-selected'
                         : 'hover:bg-black/5 dark:hover:bg-white/5'
                     )}
                   >
@@ -908,7 +908,7 @@ export function Channels() {
 function ChannelLogo({ type }: { type: ChannelType }) {
   switch (type) {
     case 'bajoseek':
-      return <img src={bajoseekIcon} alt="BajaSeek" className="w-[22px] h-[22px] dark:invert" />;
+      return <img src={bajoseekIcon} alt="BojoSeek" className="w-[22px] h-[22px] dark:invert" />;
     case 'telegram':
       return <img src={telegramIcon} alt="Telegram" className="w-[22px] h-[22px] dark:invert" />;
     case 'discord':

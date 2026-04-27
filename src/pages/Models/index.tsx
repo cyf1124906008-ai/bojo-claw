@@ -276,9 +276,9 @@ export function Models() {
       <div className="w-full max-w-5xl mx-auto flex flex-col h-full p-10 pt-16">
         
         {/* Header */}
-        <div className="bajo-page-header mb-8 shrink-0 px-6 py-5">
+        <div className="bojo-page-header mb-8 shrink-0 px-6 py-5">
           <div>
-            <div className="bajo-page-kicker mb-2">MODEL CONFIGURATION</div>
+            <div className="bojo-page-kicker mb-2">MODEL CONFIGURATION</div>
             <h1 data-testid="models-page-title" className="mb-2 text-3xl font-bold text-foreground">
               {t('dashboard:models.title')}
             </h1>
@@ -295,21 +295,21 @@ export function Models() {
           <ProvidersSettings />
 
           {/* Token Usage History Section */}
-          <div className="bajo-panel p-5">
+          <div className="bojo-panel p-5">
             <h2 className="mb-5 text-xl font-bold text-foreground">
               {t('dashboard:recentTokenHistory.title', 'Token Usage History')}
             </h2>
             <div>
               {usageLoading ? (
-                <div className="bajo-panel flex items-center justify-center py-12 text-muted-foreground border-dashed">
+                <div className="bojo-panel flex items-center justify-center py-12 text-muted-foreground border-dashed">
                   <FeedbackState state="loading" title={t('dashboard:recentTokenHistory.loading')} />
                 </div>
               ) : visibleUsageHistory.length === 0 ? (
-                <div className="bajo-panel flex items-center justify-center py-12 text-muted-foreground border-dashed">
+                <div className="bojo-panel flex items-center justify-center py-12 text-muted-foreground border-dashed">
                   <FeedbackState state="empty" title={t('dashboard:recentTokenHistory.empty')} />
                 </div>
               ) : filteredUsageHistory.length === 0 ? (
-                <div className="bajo-panel flex items-center justify-center py-12 text-muted-foreground border-dashed">
+                <div className="bojo-panel flex items-center justify-center py-12 text-muted-foreground border-dashed">
                   <FeedbackState state="empty" title={t('dashboard:recentTokenHistory.emptyForWindow')} />
                 </div>
               ) : (

@@ -934,10 +934,10 @@ export function Cron() {
     <div className="flex flex-col -m-6 dark:bg-background h-[calc(100vh-2.5rem)] overflow-hidden">
       <div className="w-full max-w-5xl mx-auto flex flex-col h-full p-10 pt-16">
         {/* Header */}
-        <div className="bajo-page-header mb-8 shrink-0 px-6 py-5">
+        <div className="bojo-page-header mb-8 shrink-0 px-6 py-5">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <div className="bajo-page-kicker mb-2">AUTOMATION</div>
+            <div className="bojo-page-kicker mb-2">AUTOMATION</div>
             <h1 className="mb-2 text-3xl font-bold text-foreground">
               {t('title')}
             </h1>
@@ -964,7 +964,7 @@ export function Cron() {
                 setShowDialog(true);
               }}
               disabled={!isGatewayRunning}
-              className="bajo-button-gradient h-9 rounded-md px-4 text-[13px] font-semibold shadow-none"
+              className="bojo-button-gradient h-9 rounded-md px-4 text-[13px] font-semibold shadow-none"
             >
               <Plus className="h-3.5 w-3.5 mr-2" />
               {t('newTask')}
@@ -997,7 +997,7 @@ export function Cron() {
 
           {/* Statistics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="bajo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
+            <div className="bojo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
               <div className="flex items-center justify-between">
                 <div className="h-11 w-11 rounded-full bg-primary/10 flex items-center justify-center">
                   <Clock className="h-5 w-5 text-primary" />
@@ -1009,7 +1009,7 @@ export function Cron() {
               </div>
             </div>
 
-            <div className="bajo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
+            <div className="bojo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
               <div className="flex items-center justify-between">
                 <div className="h-11 w-11 rounded-full bg-green-500/10 flex items-center justify-center">
                   <Play className="h-5 w-5 text-green-600 dark:text-green-500 ml-0.5" />
@@ -1021,7 +1021,7 @@ export function Cron() {
               </div>
             </div>
 
-            <div className="bajo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
+            <div className="bojo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
               <div className="flex items-center justify-between">
                 <div className="h-11 w-11 rounded-full bg-yellow-500/10 flex items-center justify-center">
                   <Pause className="h-5 w-5 text-yellow-600 dark:text-yellow-500" />
@@ -1033,7 +1033,7 @@ export function Cron() {
               </div>
             </div>
 
-            <div className="bajo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
+            <div className="bojo-card-hover p-5 flex flex-col justify-between min-h-[130px] relative overflow-hidden group transition-colors">
               <div className="flex items-center justify-between">
                 <div className="h-11 w-11 rounded-full bg-destructive/10 flex items-center justify-center">
                   <XCircle className="h-5 w-5 text-destructive" />
@@ -1048,7 +1048,7 @@ export function Cron() {
 
           {/* Jobs List */}
           {safeJobs.length === 0 ? (
-            <div className="bajo-panel flex flex-col items-center justify-center py-20 text-muted-foreground border-dashed">
+            <div className="bojo-panel flex flex-col items-center justify-center py-20 text-muted-foreground border-dashed">
               <Clock className="h-10 w-10 mb-4 opacity-50" />
               <h3 className="text-lg font-medium mb-2 text-foreground">{t('empty.title')}</h3>
               <p className="text-[14px] text-center mb-6 max-w-md">

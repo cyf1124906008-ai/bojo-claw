@@ -102,7 +102,7 @@
     "envVar": "Environment Variable: {{var}}",
     "docsTitle": "Setup Guide",
     "docsSubtitle": "Built-in notes. No external page will be opened.",
-    "docsIntro": "Fill in the fields below and save. BajaClaw will restart the gateway automatically so the channel can take effect.",
+    "docsIntro": "Fill in the fields below and save. BojoClaw will restart the gateway automatically so the channel can take effect.",
     "copyDocs": "Copy Guide",
     "channelDescription": "Channel description",
     "connectionMethod": "Connection method",
@@ -138,22 +138,22 @@
   },
   "meta": {
     "bajoseek": {
-      "description": "Connect BajaSeek through the BajaSeek WebSocket plugin so BajaClaw can receive and reply to BajaSeek messages.",
-      "docsUrl": "baja-claw://docs/bajoseek",
+      "description": "Connect BojoSeek through the BojoSeek WebSocket plugin so BojoClaw can receive and reply to BojoSeek messages.",
+      "docsUrl": "bojo-claw://docs/bajoseek",
       "fields": {
         "botId": {
           "label": "Bot ID",
-          "placeholder": "Paste the Bot ID from the BajaSeek console"
+          "placeholder": "Paste the Bot ID from the BojoSeek console"
         },
         "token": {
           "label": "Token",
-          "placeholder": "Paste the Token from the BajaSeek console"
+          "placeholder": "Paste the Token from the BojoSeek console"
         }
       },
       "instructions": [
-        "Open the BajaSeek console and go to your bot or plugin settings.",
+        "Open the BojoSeek console and go to your bot or plugin settings.",
         "Copy the Bot ID and Token into the fields below.",
-        "Save and connect, then wait for the gateway restart before testing messages in BajaSeek."
+        "Save and connect, then wait for the gateway restart before testing messages in BojoSeek."
       ]
     },
     "telegram": {

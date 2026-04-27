@@ -120,7 +120,7 @@ export function startHostApiServer(ctx: HostApiContext, port = getPort('CLAWX_HO
       logger.error(
         `Host API server failed to bind port ${port}: ${error.message}. ` +
         'On Windows this is often caused by Hyper-V reserving the port range. ' +
-        `Set BAJO_CLAW_PORT_CLAWX_HOST_API env var to override the default port.`,
+        `Set BOJO_CLAW_PORT_CLAWX_HOST_API env var to override the default port.`,
       );
     } else {
       logger.error('Host API server error:', error);

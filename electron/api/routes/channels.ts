@@ -16,7 +16,7 @@ import {
   setChannelEnabled,
   validateChannelConfig,
   validateChannelCredentials,
-  isBajaSupportedChannelType,
+  isBojoSupportedChannelType,
 } from '../../utils/channel-config';
 import {
   assignChannelAccountToAgent,
@@ -27,7 +27,7 @@ import {
 } from '../../utils/agent-config';
 import {
   ensureDingTalkPluginInstalled,
-  ensureBajaSeekPluginInstalled,
+  ensureBojoSeekPluginInstalled,
   ensureFeishuPluginInstalled,
   ensureWeChatPluginInstalled,
   ensureWeComPluginInstalled,
@@ -95,13 +95,13 @@ function resolveStoredChannelType(channelType: string): string {
 }
 
 function rejectUnsupportedChannel(res: ServerResponse, channelType: string): boolean {
-  if (isBajaSupportedChannelType(channelType)) {
+  if (isBojoSupportedChannelType(channelType)) {
     return false;
   }
 
   sendJson(res, 400, {
     success: false,
-    error: `Channel "${channelType}" is not supported by BajaClaw. Supported channels: BajaSeek, WeChat.`,
+    error: `Channel "${channelType}" is not supported by BojoClaw. Supported channels: BojoSeek, WeChat.`,
   });
   return true;
 }
@@ -592,7 +592,7 @@ export async function buildChannelAccountsView(
   const channels: ChannelAccountsView[] = [];
   for (const rawChannelType of channelTypes) {
     const uiChannelType = toUiChannelType(rawChannelType);
-    if (!isBajaSupportedChannelType(uiChannelType)) {
+    if (!isBojoSupportedChannelType(uiChannelType)) {
       continue;
     }
     const channelAccountsFromConfig = configuredAccounts[rawChannelType]?.accountIds ?? [];
@@ -1497,9 +1497,9 @@ export async function handleChannelRoutes(
         }
       }
       if (storedChannelType === 'bajoseek') {
-        const installResult = await ensureBajaSeekPluginInstalled();
+        const installResult = await ensureBojoSeekPluginInstalled();
         if (!installResult.installed) {
-          sendJson(res, 500, { success: false, error: installResult.warning || 'BajaSeek plugin install failed' });
+          sendJson(res, 500, { success: false, error: installResult.warning || 'BojoSeek plugin install failed' });
           return true;
         }
       }

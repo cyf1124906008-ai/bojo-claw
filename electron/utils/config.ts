@@ -7,10 +7,10 @@
  * Port configuration
  */
 export const PORTS = {
-  /** BajaClaw GUI development server port */
+  /** BojoClaw GUI development server port */
   CLAWX_DEV: 5173,
   
-  /** BajaClaw GUI production port (for reference) */
+  /** BojoClaw GUI production port (for reference) */
   CLAWX_GUI: 23333,
 
   /** Local host API server port */
@@ -24,7 +24,7 @@ export const PORTS = {
  * Get port from environment or default
  */
 export function getPort(key: keyof typeof PORTS): number {
-  const envKey = `BAJO_CLAW_PORT_${key}`;
+  const envKey = `BOJO_CLAW_PORT_${key}`;
   const envValue = process.env[envKey];
   return envValue ? parseInt(envValue, 10) : PORTS[key];
 }
@@ -34,13 +34,13 @@ export function getPort(key: keyof typeof PORTS): number {
  */
 export const APP_PATHS = {
   /** OpenClaw configuration directory */
-  OPENCLAW_CONFIG: '%APPDATA%/baja-claw/openclaw-home/.openclaw',
+  OPENCLAW_CONFIG: '%APPDATA%/bojo-claw/openclaw-home/.openclaw',
   
-  /** BajaClaw configuration directory */
-  CLAWX_CONFIG: '%APPDATA%/baja-claw/config',
+  /** BojoClaw configuration directory */
+  CLAWX_CONFIG: '%APPDATA%/bojo-claw/config',
   
   /** Log files directory */
-  LOGS: '%APPDATA%/baja-claw/logs',
+  LOGS: '%APPDATA%/bojo-claw/logs',
 } as const;
 
 /**

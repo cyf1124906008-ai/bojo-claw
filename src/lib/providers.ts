@@ -138,7 +138,7 @@ import { providerIcons } from '@/assets/providers';
 export const PROVIDER_TYPE_INFO: ProviderTypeInfo[] = [
   {
     id: 'shuyan',
-    name: 'BajaSeek',
+    name: 'BojoSeek',
     icon: 'B',
     placeholder: 'sk-...',
     model: 'bajoseek',

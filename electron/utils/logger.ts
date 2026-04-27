@@ -102,10 +102,10 @@ export function initLogger(): void {
     }
 
     const timestamp = new Date().toISOString().split('T')[0];
-    logFilePath = join(logDir, `baja-claw-${timestamp}.log`);
+    logFilePath = join(logDir, `bojo-claw-${timestamp}.log`);
 
     // Write a separator for new session (sync is OK — happens once at startup)
-    const sessionHeader = `\n${'='.repeat(80)}\n[${new Date().toISOString()}] === BajaClaw Session Start (v${app.getVersion()}) ===\n${'='.repeat(80)}\n`;
+    const sessionHeader = `\n${'='.repeat(80)}\n[${new Date().toISOString()}] === BojoClaw Session Start (v${app.getVersion()}) ===\n${'='.repeat(80)}\n`;
     appendFileSync(logFilePath, sessionHeader);
   } catch (error) {
     console.error('Failed to initialize logger:', error);

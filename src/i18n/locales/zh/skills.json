@@ -60,6 +60,7 @@
   "source": {
     "badge": {
       "bundled": "内置",
+      "bojoLocal": "Bojo 内置",
       "managed": "托管目录",
       "workspace": "工作区",
       "extra": "额外目录",

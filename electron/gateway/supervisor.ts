@@ -8,7 +8,7 @@ import { prependPathEntry } from '../utils/env-path';
 import { probeGatewayReady } from './ws-client';
 
 export function warmupManagedPythonReadiness(): void {
-  logger.info('Skipping managed Python warmup; BajaClaw uses bundled OpenClaw for first-run readiness.');
+  logger.info('Skipping managed Python warmup; BojoClaw uses bundled OpenClaw for first-run readiness.');
 }
 
 export async function terminateOwnedGatewayProcess(child: Electron.UtilityProcess): Promise<void> {
